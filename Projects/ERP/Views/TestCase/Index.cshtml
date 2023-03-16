@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ERP_Automation_Test.Models.Module>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    TestCase{
+        background-color : Red
+    }
+
+</style>
+
+@using (Html.BeginForm("Index", "TestCase", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Get))
+{
+
+    <fieldset>
+
+        
+        <h3>
+            @Html.DropDownList("Module")            
+            <input type="submit" value="Search" />          
+       </h3>
+    </fieldset>
+
+}
+
+<section id="Run">
+        
+@using (Html.BeginForm("RunTestCases", "TestCase", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+       <fieldset>  
+
+    <h2>
+        Choose Test Cases and Click Run
+        <input type="submit" value="Run" style="background-color:Green ; color:white" />
+    </h2>
+    
+   
+@foreach (var module in Model)
+{
+    <table class="table" style="margin:0">
+        @foreach( var page in module.pages)
+        {
+        <tr>
+            <th>
+                <h3> @page.name </h3>
+            </th>
+            <th>
+                <h3>
+                    @Html.ActionLink("Select All", "SelectAll", new { module_id = module.id, page_id = page.id }) |
+                    @Html.ActionLink("UnSelect All", "UnSelectAll", new { module_id = module.id, page_id = page.id })
+                </h3>
+
+            </th>
+        </tr>
+
+        foreach (var testCase in page.testcases)
+        {
+        <tr>
+
+            <th>
+
+                 @*@Html.CheckBox("selectedTCs", testCase.selected)*@
+                @*<div style="background-color:@testCase.BGcolor; color:@testCase.color">@testCase.name </div>*@
+                    <div style="background-color:@testCase.BGcolor; color:@testCase.color">@Html.ActionLink(@testCase.name, "CheckAndUncheck", new { module_id = module.id, page_id = page.id, TC_id = testCase.id })  </div>
+</th>
+            <th>
+
+
+            </th>
+        </tr>
+        }
+
+
+        }
+    </table>
+
+}
+
+       </fieldset>
+
+           }
+
+</section>
+
+
+
+
+
