@@ -15,6 +15,7 @@ namespace ERP_Automation_Testing
     {
         static IWebDriver Driver = Automation_Testing.Common.Driver;
 
+
         // Selectors
         static By SupplierName_SelectToggle = By.CssSelector("#FormManager > div.row > div:nth-child(2) > div > a > span.select2-arrow.ui-select-toggle");
         static By SupplierName_TextBox = By.CssSelector("#FormManager > div.row > div:nth-child(2) > div > div > div > input");
@@ -38,7 +39,6 @@ namespace ERP_Automation_Testing
         static By edit_button = By.ClassName("btnEditItem");
         static By cancel_button = By.ClassName("btnCancelItem");
         static By confermcancel_button = By.ClassName("confirm");
-        static By viewbutton = By.ClassName("contents ng-scope");
         static By Date = By.ClassName("dataPickerInputMainClass");
         static By price = By.Id("EmptyInventoryPermissionDetails_Price");
 
@@ -54,8 +54,8 @@ namespace ERP_Automation_Testing
 
         public static void Goto()
         {
-                Pages.DailyRestrictionspage();
-                time.Sleep(3000);
+            Pages.DailyRestrictionPage();
+            time.Sleep(2000);
 
         }
 
@@ -85,6 +85,8 @@ namespace ERP_Automation_Testing
             string lastregistrationID = Driver.FindElement(registrationID).GetAttribute("value");
             return (int.Parse(lastregistrationID)+1).ToString();
         }
+
+
 
     }
     }

@@ -19,7 +19,7 @@ namespace ERP_Automation_Testing
     {
         private enum MENU_ITEMS
         {
-            PROFILES = 4, GENERAL_SITTINGS = 6, FINANCIALS = 8, INVENTORIES = 9, SALES = 10, PURCHASES = 11, ESTATE = 14, assets = 3 
+            PROFILES = 4, GENERAL_SITTINGS = 6, FINANCIALS = 8, INVENTORIES = 9, SALES = 10, PURCHASES = 11, ESTATE = 14, assets = 3 , PERSONAL_AFFAIRS = 20
         }
 
         private enum PROFILES_ITEMS
@@ -34,7 +34,7 @@ namespace ERP_Automation_Testing
 
         private enum FINANCIALS_ITEMS
         {
-            CURRENCY = 4, BANK = 7, BANK_ACCOUNT = 8, TAX = 9, COST_CENTER = 10, Receiptvoucher = 1, DailyRestrictions=12 , AccountReport=13
+            CURRENCY = 4, BANK = 7, BANK_ACCOUNT = 8, TAX = 9, COST_CENTER = 10, Receiptvoucher = 1, DailyRestrictions = 13, AccountReport = 14
 
 
         }
@@ -60,6 +60,11 @@ namespace ERP_Automation_Testing
         {
             assets = 3
         }
+         private enum PersonnalAffairs_ITEMS
+        {
+            DesignationType = 1 
+        }
+
         static IWebDriver Driver = Automation_Testing.Common.Driver;
 
         static By Profiling_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PROFILES + ") > a");
@@ -68,8 +73,8 @@ namespace ERP_Automation_Testing
         static By Owners_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PROFILES + ") > ul > li:nth-child(" + (int)PROFILES_ITEMS.OWNERS + ") > a");
         static By Technicians_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PROFILES + ") > ul > li:nth-child(" + (int)PROFILES_ITEMS.Technicians + ") > a");
 
-        static By Financial_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.FINANCIALS + ") > a");    
-        static By Daily_Restrictions = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(8) > ul > li:nth-child(12) > a");
+        static By Financial_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.FINANCIALS + ") > a");
+        static By Daily_Restrictions = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.FINANCIALS + ") > ul > li:nth-child(" + (int)FINANCIALS_ITEMS.DailyRestrictions + ") > a");
         static By Currency_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.FINANCIALS + ") > ul > li:nth-child(" + (int)FINANCIALS_ITEMS.CURRENCY + ") > a");
         static By Tax_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.FINANCIALS + ") > ul > li:nth-child(" + (int)FINANCIALS_ITEMS.TAX + ") > a");
         static By AccountReport_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.FINANCIALS + ") > ul > li:nth-child(" + (int)FINANCIALS_ITEMS.AccountReport + ") > a");
@@ -77,8 +82,8 @@ namespace ERP_Automation_Testing
         static By Bank_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.FINANCIALS + ") > ul > li:nth-child(" + (int)FINANCIALS_ITEMS.BANK + ") > a");
         static By BankAccount_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.FINANCIALS + ") > ul > li:nth-child(" + (int)FINANCIALS_ITEMS.BANK_ACCOUNT + ") > a");
         static By Receiptvoucher_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.FINANCIALS + ") > ul > li:nth-child(" + (int)FINANCIALS_ITEMS.Receiptvoucher + ") > a");
-        
-        
+
+
         static By Inventories_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.INVENTORIES + ") > a");
         static By Brand_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.INVENTORIES + ") > ul > li:nth-child(" + (int)INVENTORIES_ITEMS.BRAND + ") > a");
         static By Store_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.INVENTORIES + ") > ul > li:nth-child(" + (int)INVENTORIES_ITEMS.STORE + ") > a");
@@ -88,8 +93,8 @@ namespace ERP_Automation_Testing
         static By AddingPermission_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.INVENTORIES + ") > ul > li:nth-child(" + (int)INVENTORIES_ITEMS.ADDING_PERMISSION + ") > a");
         static By InventoryPermission_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.INVENTORIES + ") > ul > li:nth-child(" + (int)INVENTORIES_ITEMS.INVENTORY_PERMISSION + ") > a");
         static By Itemstatus_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.INVENTORIES + ") > ul > li:nth-child(" + (int)INVENTORIES_ITEMS.Itemstatus + ") > a");
-     
-        
+
+
         static By GeneralSittings_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.GENERAL_SITTINGS + ") > a");
         static By Countries_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.GENERAL_SITTINGS + ") > ul > li:nth-child(" + (int)GENERAL_SITTING_ITEMS.COUNTRIES + ") > a");
         static By Areas_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.GENERAL_SITTINGS + ") > ul > li:nth-child(" + (int)GENERAL_SITTING_ITEMS.AREAS + ") > a");
@@ -108,19 +113,22 @@ namespace ERP_Automation_Testing
 
         static By SalesBill_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.SALES + ") > ul > li:nth-child(" + (int)SALES_ITEMS.SALES_BILL + ") > a");
         static By Building_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.SALES + ") > ul > li:nth-child(" + (int)Estate_ITEMS.buildings + ") > a");
-        
-        
+
+
         static By Estate_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ESTATE + ") > a");
         static By BanResaon_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ESTATE + ") > ul > li:nth-child(" + (int)Estate_ITEMS.BAN_REASON + ") > a");
         static By Property_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ESTATE + ") > ul > li:nth-child(" + (int)Estate_ITEMS.property + ") > a");
-        
-        
-        
-        
-        
+
+
+        static By PersonnalAffairs_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > a");
+        static By DesignationType_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.DesignationType + ") > a");
+
+
+
+
         public static void Open(By Module, By Page)
         {
-           if (Driver.FindElement(Module).GetAttribute("class") != "open")
+            if (Driver.FindElement(Module).GetAttribute("class") != "open")
             {
                 Driver.FindElement(Module).Click();
             }
@@ -209,9 +217,6 @@ namespace ERP_Automation_Testing
         {
             Open(Inventories_Module, InventoryCategory_Page);
         }
-
-
-
 
         public static void ItemPage()
         {
@@ -302,11 +307,17 @@ namespace ERP_Automation_Testing
         public static void DailyRestrictionspage()
         {
 
+            Open(Estate_Module, Bank_Page);
+        }
+        public static void DailyRestrictionPage()
+        {
             Open(Financial_Module, Daily_Restrictions);
+        }
+
+        public static void DesignationTypePage()
+        {
+            Open(PersonnalAffairs_Module, DesignationType_page);
         }
 
     }
 }
-
-
-

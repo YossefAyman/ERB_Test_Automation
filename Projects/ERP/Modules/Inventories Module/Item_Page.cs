@@ -14,7 +14,6 @@ namespace ERP_Automation_Testing
     class item_page
     {
         static IWebDriver Driver = Automation_Testing.Common.Driver;
-        static IJavaScriptExecutor javaDriverExector = Driver as IJavaScriptExecutor;
 
         // Selectors
         static By Add_Button = By.ClassName("btnAddItem");
@@ -98,14 +97,10 @@ namespace ERP_Automation_Testing
                 Common.ClearThenWrite(DemandlimitforInventory_Textbox, Data.item.Demandlimitforinventory);
                 Driver.FindElement(Barcode_Textbox).SendKeys(Data.item.Barcode);
                 Driver.FindElement(validityDuration_Textbox).SendKeys(Data.item.Validityduration);
-
-
-                IWebElement Element = Driver.FindElement(Save_Button);
-                javaDriverExector.ExecuteScript("arguments[0].scrollIntoView();", Element);
-
-
+            
+                time.Sleep(2000);
                 Driver.FindElement(Save_Button).Click();
-                time.Sleep(1000);
+                time.Sleep(2000);
 
                 // Driver.FindElement(Discountforsale_Textbox).SendKeys(Data.item.Discountforsale);
 

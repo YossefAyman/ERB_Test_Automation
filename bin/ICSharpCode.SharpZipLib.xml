@@ -2231,6 +2231,11 @@
             Original filename
             </summary>
         </member>
+        <member name="P:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.ModifiedTime">
+            <summary>
+            If defined, will use this time instead of the current for the output header
+            </summary>
+        </member>
         <member name="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.Write(System.Byte[],System.Int32,System.Int32)">
             <summary>
             Write given buffer to output updating crc
@@ -2238,6 +2243,15 @@
             <param name="buffer">Buffer to write</param>
             <param name="offset">Offset of first byte in buf to write</param>
             <param name="count">Number of bytes to write</param>
+        </member>
+        <member name="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously write given buffer to output updating crc
+            </summary>
+            <param name="buffer">Buffer to write</param>
+            <param name="offset">Offset of first byte in buf to write</param>
+            <param name="count">Number of bytes to write</param>
+            <param name="ct">The token to monitor for cancellation requests</param>
         </member>
         <member name="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.Dispose(System.Boolean)">
             <summary>
@@ -2251,13 +2265,13 @@
             on the deflater.
             </summary>
         </member>
+        <member name="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.FlushAsync(System.Threading.CancellationToken)">
+            <inheritdoc cref="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.Flush"/>
+        </member>
         <member name="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.Finish">
             <summary>
             Finish compression and write any footer information required to stream
             </summary>
-        </member>
-        <member name="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.FlushAsync(System.Threading.CancellationToken)">
-            <inheritdoc cref="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.Flush"/>
         </member>
         <member name="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.FinishAsync(System.Threading.CancellationToken)">
             <inheritdoc cref="M:ICSharpCode.SharpZipLib.GZip.GZipOutputStream.Finish"/>
@@ -6310,6 +6324,9 @@
             on the underlying stream.  This ensures that all bytes are flushed.
             </summary>
         </member>
+        <member name="M:ICSharpCode.SharpZipLib.Zip.Compression.Streams.DeflaterOutputStream.FlushAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
         <member name="M:ICSharpCode.SharpZipLib.Zip.Compression.Streams.DeflaterOutputStream.Dispose(System.Boolean)">
             <summary>
             Calls <see cref="M:ICSharpCode.SharpZipLib.Zip.Compression.Streams.DeflaterOutputStream.Finish"/> and closes the underlying
@@ -6342,6 +6359,9 @@
             <param name="count">
             The number of bytes to write.
             </param>
+        </member>
+        <member name="M:ICSharpCode.SharpZipLib.Zip.Compression.Streams.DeflaterOutputStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
         </member>
         <member name="F:ICSharpCode.SharpZipLib.Zip.Compression.Streams.DeflaterOutputStream.buffer_">
             <summary>
@@ -11063,6 +11083,9 @@
             <param name="count">The number of bytes to write.</param>
             <exception cref="T:ICSharpCode.SharpZipLib.Zip.ZipException">Archive size is invalid</exception>
             <exception cref="T:System.InvalidOperationException">No entry is active.</exception>
+        </member>
+        <member name="M:ICSharpCode.SharpZipLib.Zip.ZipOutputStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
         </member>
         <member name="M:ICSharpCode.SharpZipLib.Zip.ZipOutputStream.Finish">
             <summary>

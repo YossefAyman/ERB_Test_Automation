@@ -9,6 +9,16 @@
             Twitter access token
             </summary>
         </member>
+        <member name="P:Microsoft.Owin.Security.Twitter.Messages.AccessToken.UserId">
+            <summary>
+            Gets or sets the Twitter User ID
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.Twitter.Messages.AccessToken.ScreenName">
+            <summary>
+            Gets or sets the Twitter screen name
+            </summary>
+        </member>
         <member name="T:Microsoft.Owin.Security.Twitter.Messages.RequestToken">
             <summary>
             Twitter request token
@@ -27,16 +37,6 @@
         <member name="P:Microsoft.Owin.Security.Twitter.Messages.RequestToken.Properties">
             <summary>
             Gets or sets a property bag for common authentication properties
-            </summary>
-        </member>
-        <member name="P:Microsoft.Owin.Security.Twitter.Messages.AccessToken.UserId">
-            <summary>
-            Gets or sets the Twitter User ID
-            </summary>
-        </member>
-        <member name="P:Microsoft.Owin.Security.Twitter.Messages.AccessToken.ScreenName">
-            <summary>
-            Gets or sets the Twitter screen name
             </summary>
         </member>
         <member name="T:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer">
@@ -84,7 +84,7 @@
         </member>
         <member name="T:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider">
             <summary>
-            Specifies callback methods which the <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware"></see> invokes to enable developer control over the authentication process. /&gt;
+            Specifies callback methods which the <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware"></see> invokes to enable developer control over the authentication process. />
             </summary>
         </member>
         <member name="M:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext)">
@@ -100,6 +100,36 @@
             </summary>
             <param name="context"></param>
             <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the completed operation.</returns>
+        </member>
+        <member name="M:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext)">
+            <summary>
+            Called when a Challenge causes a redirect to authorize endpoint in the Twitter middleware
+            </summary>
+            <param name="context">Contains redirect URI and <see cref="T:Microsoft.Owin.Security.AuthenticationProperties"/> of the challenge </param>
+        </member>
+        <member name="T:Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext">
+            <summary>
+            Context passed when a Challenge causes a redirect to authorize endpoint in the Twitter middleware
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions,Microsoft.Owin.Security.AuthenticationProperties,System.String)">
+            <summary>
+            Creates a new context object.
+            </summary>
+            <param name="context">The OWIN request context</param>
+            <param name="options">The Facebook middleware options</param>
+            <param name="properties">The authenticaiton properties of the challenge</param>
+            <param name="redirectUri">The initial redirect URI</param>
+        </member>
+        <member name="P:Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext.RedirectUri">
+            <summary>
+            Gets the URI used for the redirect operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext.Properties">
+            <summary>
+            Gets the authenticaiton properties of the challenge
+            </summary>
         </member>
         <member name="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext">
             <summary>
@@ -156,6 +186,21 @@
             Initializes a <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider"/>
             </summary>
         </member>
+        <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.OnAuthenticated">
+            <summary>
+            Gets or sets the function that is invoked when the Authenticated method is invoked.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.OnReturnEndpoint">
+            <summary>
+            Gets or sets the function that is invoked when the ReturnEndpoint method is invoked.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.OnApplyRedirect">
+            <summary>
+            Gets or sets the delegate that is invoked when the ApplyRedirect method is invoked.
+            </summary>
+        </member>
         <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext)">
             <summary>
             Invoked whenever Twitter succesfully authenticates a user
@@ -170,15 +215,11 @@
             <param name="context"></param>
             <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the completed operation.</returns>
         </member>
-        <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.OnAuthenticated">
+        <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext)">
             <summary>
-            Gets or sets the function that is invoked when the Authenticated method is invoked.
+            Called when a Challenge causes a redirect to authorize endpoint in the Twitter middleware
             </summary>
-        </member>
-        <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.OnReturnEndpoint">
-            <summary>
-            Gets or sets the function that is invoked when the ReturnEndpoint method is invoked.
-            </summary>
+            <param name="context">Contains redirect URI and <see cref="T:Microsoft.Owin.Security.AuthenticationProperties"/> of the challenge </param>
         </member>
         <member name="T:Microsoft.Owin.Security.Twitter.TwitterReturnEndpointContext">
             <summary>
@@ -217,28 +258,6 @@
             <summary>
               Looks up a localized string similar to An ICertificateValidator cannot be specified at the same time as an HttpMessageHandler unless it is a WebRequestHandler..
             </summary>
-        </member>
-        <member name="T:Owin.TwitterAuthenticationExtensions">
-            <summary>
-            Extension methods for using <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware"/>
-            </summary>
-        </member>
-        <member name="M:Owin.TwitterAuthenticationExtensions.UseTwitterAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions)">
-            <summary>
-            Authenticate users using Twitter
-            </summary>
-            <param name="app">The <see cref="T:Owin.IAppBuilder"/> passed to the configuration method</param>
-            <param name="options">Middleware configuration options</param>
-            <returns>The updated <see cref="T:Owin.IAppBuilder"/></returns>
-        </member>
-        <member name="M:Owin.TwitterAuthenticationExtensions.UseTwitterAuthentication(Owin.IAppBuilder,System.String,System.String)">
-            <summary>
-            Authenticate users using Twitter
-            </summary>
-            <param name="app">The <see cref="T:Owin.IAppBuilder"/> passed to the configuration method</param>
-            <param name="consumerKey">The Twitter-issued consumer key</param>
-            <param name="consumerSecret">The Twitter-issued consumer secret</param>
-            <returns>The updated <see cref="T:Owin.IAppBuilder"/></returns>
         </member>
         <member name="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware">
             <summary>
@@ -333,6 +352,33 @@
             <summary>
             Gets or sets the <see cref="T:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider"/> used to handle authentication events.
             </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.CookieManager">
+            <summary>
+            An abstraction for reading and setting cookies during the authentication process.
+            </summary>
+        </member>
+        <member name="T:Owin.TwitterAuthenticationExtensions">
+            <summary>
+            Extension methods for using <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware"/>
+            </summary>
+        </member>
+        <member name="M:Owin.TwitterAuthenticationExtensions.UseTwitterAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions)">
+            <summary>
+            Authenticate users using Twitter
+            </summary>
+            <param name="app">The <see cref="T:Owin.IAppBuilder"/> passed to the configuration method</param>
+            <param name="options">Middleware configuration options</param>
+            <returns>The updated <see cref="T:Owin.IAppBuilder"/></returns>
+        </member>
+        <member name="M:Owin.TwitterAuthenticationExtensions.UseTwitterAuthentication(Owin.IAppBuilder,System.String,System.String)">
+            <summary>
+            Authenticate users using Twitter
+            </summary>
+            <param name="app">The <see cref="T:Owin.IAppBuilder"/> passed to the configuration method</param>
+            <param name="consumerKey">The Twitter-issued consumer key</param>
+            <param name="consumerSecret">The Twitter-issued consumer secret</param>
+            <returns>The updated <see cref="T:Owin.IAppBuilder"/></returns>
         </member>
     </members>
 </doc>
