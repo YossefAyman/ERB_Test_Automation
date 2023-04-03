@@ -18,7 +18,7 @@ using System.Xml.Linq;
 
 namespace ERP_Automation_Testing
 {
-    public static  class Data
+    public static class Data
     {
         //public static IWebDriver Driver = new ChromeDriver(@"F:\WebSites\Test\ERPAutomation\TestNeeds\");
         //public static IWebDriver Driver = new ChromeDriver(@"D:\BonianTFS\ERP\Source\Tools\ERP_Automation_Test\ERP_Automation_Test\TestNeeds");
@@ -32,7 +32,7 @@ namespace ERP_Automation_Testing
         public static string ERP_URL = "https://erptest.boniantech.com/";
         //public static string ERPBaseLine_URL = "http://test.boniantech.com/erpBaseLine/";
         // public static string FARM_URL = "https://app.boniantech.com/FriendsFarm/";
-        
+
         // admin 
         public static string user = "admin";
         public static string pwd = "9999";
@@ -139,8 +139,6 @@ namespace ERP_Automation_Testing
             public static string ItemPrice = "300";
             public static string ItemUnit = "300";
             public static string Barcode = "012215452112";
-
-
             */
             public static string ItemName
             {
@@ -167,7 +165,7 @@ namespace ERP_Automation_Testing
                 }
                 set {; }
             }
-             public static string ItemDescription
+            public static string ItemDescription
             {
                 get
                 {
@@ -175,7 +173,7 @@ namespace ERP_Automation_Testing
                 }
                 set {; }
             }
-              public static string ItempurchasePrice
+            public static string ItempurchasePrice
             {
                 get
                 {
@@ -183,7 +181,7 @@ namespace ERP_Automation_Testing
                 }
                 set {; }
             }
-                 public static string ItemPrice
+            public static string ItemPrice
             {
                 get
                 {
@@ -191,7 +189,7 @@ namespace ERP_Automation_Testing
                 }
                 set {; }
             }
-                  public static string ItemUnit
+            public static string ItemUnit
             {
                 get
                 {
@@ -199,7 +197,7 @@ namespace ERP_Automation_Testing
                 }
                 set {; }
             }
-                  public static string Barcode
+            public static string Barcode
             {
                 get
                 {
@@ -274,7 +272,7 @@ namespace ERP_Automation_Testing
         public static string ItemType = "ItemType_" + TEST_INDEX;
         public static string ItemNatural = "منتج";
         public static string address = "389faisalstreet";
-           
+
         public static object AddAttachment { get; internal set; }
 
         public class Item
@@ -420,13 +418,13 @@ namespace ERP_Automation_Testing
             public string Discount = "50";
         }
 
-      
-        
+
+
 
         public struct assets
         {
             /// /////////////////// # Test_Index_Add_Asset # /////////////////////////////////////////////
-            
+
             public static TestAutomationDbModels.TestConfig Test_Index_Add_Asset = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Add_Asset");
 
             /// /////////////////// # Assets_Data # /////////////////////////////////////////////
@@ -441,59 +439,66 @@ namespace ERP_Automation_Testing
             public static string Date = DateValue;
 
 
-            public static string Brand   
+            public static string Brand
             {
-                get {
-                         return "Anc";
-                }    
-                set { ; }  
+                get
+                {
+                    return "Anc";
+                }
+                set {; }
             }
 
-         
 
-            public static string originType   
+
+            public static string originType
             {
-                get {
+                get
+                {
                     return "نوع الصنف_101";
-                }   
-                set { ; }  
+                }
+                set {; }
             }
             public static string parentclass
             {
-                get {
+                get
+                {
                     return "جبنة";
-                }   
-                set { ; }  
+                }
+                set {; }
             }
 
             public static string ageofassets
             {
-                get { 
-                    return Test_Index_Add_Asset.Value; 
-                }   
-                set { ; } 
+                get
+                {
+                    return Test_Index_Add_Asset.Value;
+                }
+                set {; }
             }
 
             public static string OriginName
             {
-                get {
+                get
+                {
                     return "OriginName_" + Test_Index_Add_Asset.Value;
                 }
-                set { ; }
+                set {; }
             }
             public static string origincode
             {
-                get {
+                get
+                {
                     return Test_Index_Add_Asset.Value;
                 }
-                set { ; }
+                set {; }
             }
             public static string Thepriceofassets
             {
-                get {
+                get
+                {
                     return Test_Index_Add_Asset.Value;
                 }
-                set { ; }
+                set {; }
             }
 
 
@@ -531,6 +536,33 @@ namespace ERP_Automation_Testing
             public string Banresaon_name = "BanResaon" + letters[TEST_INDEX];
 
         }
+
+
+
+        public struct M1HR_DesignationType
+        {
+            /// /////////////////// # Test_Index_HR_M1_P1_Add_DesignationType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_Add_DesignationType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P1_Add_DesignationType");
+
+
+
+            public static string DesignationType_Name
+            {
+                get
+                {
+                    return "_نوع التعيين" + Test_Index_Add_DesignationType.Value;
+                }
+                set {; }
+            }
+
+
+
+        }
+
+
+
+
         public static void Shortcut(String ShortKeys)
         {
 
@@ -561,37 +593,32 @@ namespace ERP_Automation_Testing
 
         }
 
-            public static bool check(bool condition, string failmsg)
+        public static bool check(bool condition, string failmsg)
+        {
+            if (condition == false)
             {
-                if (condition == false)
+                if (testingOnWebsite == false)
                 {
-                    if (testingOnWebsite == false)
-                    {
-                        Assert.IsTrue(false, failmsg);
-                        return false;
-                    }
-                    else
-                    {
-                        // TestCases.BankTestCheckbox.BackColor = System.Drawing.Color.FromName("Green");
-                        global::System.Windows.Forms.MessageBox.Show(failmsg);
-                        return false;
-                    }
-
+                    Assert.IsTrue(false, failmsg);
+                    return false;
                 }
                 else
                 {
-                    return true;
+                    // TestCases.BankTestCheckbox.BackColor = System.Drawing.Color.FromName("Green");
+                    global::System.Windows.Forms.MessageBox.Show(failmsg);
+                    return false;
                 }
-            
-            
-               
-         
+
+            }
+            else
+            {
+                return true;
             }
 
+
+
+
         }
+
     }
-
-
-
-
-
+}

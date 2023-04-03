@@ -15,7 +15,6 @@ using System.IO;
 using OpenQA.Selenium.Firefox;
 using Keys = OpenQA.Selenium.Keys;
 using OpenQA.Selenium.Interactions;
-using System.Data.SqlClient;
 
 namespace Automation_Testing
 {
@@ -33,10 +32,6 @@ namespace Automation_Testing
             NOT_EXIST = 2,
             REPEATED = 3,
         }
-
-      
-
-
         public static bool IsElementPresent(By by)
         {
             try

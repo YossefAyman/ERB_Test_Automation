@@ -10,7 +10,6 @@ using time = System.Threading.Thread;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using Automation_Testing;
 //using System.Windows.Forms;
 
 
@@ -62,13 +61,6 @@ namespace ERP_Automation_Testing
 
             Store_Page.Delete_Store(Data.Store + "_edit");
             Assert.IsTrue(Store_Page.Search(Data.Store + "_edit") != "Exist", "T3_Delete_Store Failed");
-
-        }
-
-        [TearDown]
-        public static void Test_End()
-        {
-            Common.Driver.Close();
 
         }
 

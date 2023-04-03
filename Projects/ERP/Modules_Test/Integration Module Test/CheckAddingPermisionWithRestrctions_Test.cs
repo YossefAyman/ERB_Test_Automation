@@ -47,9 +47,6 @@ namespace ERP_Automation_Testing
             int totalAmout = int.Parse(Data.AddingPermission.Price) * int.Parse(Data.AddingPermission.Quantity);
             Assert.AreEqual(totalAmout, valueDebtor);
 
-           
-
-
         }
 
 

@@ -10,7 +10,6 @@ using time = System.Threading.Thread;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using Automation_Testing;
 //using System.Windows.Forms;
 
 
@@ -26,7 +25,6 @@ namespace ERP_Automation_Testing
             Automation_Testing.Common.Driver.Manage().Window.Maximize();
             Login_Page.LoginAsAdmin();
             Brand_Page.Goto();
-            
         }
 
         [Test]
@@ -65,10 +63,6 @@ namespace ERP_Automation_Testing
             Assert.IsTrue(Brand_Page.Search(Data.Brand + "_edit") == "NotExist", "T3_Delete_Brand Failed");
 
         }
-        [TearDown]
-        public static void Test_End()
-        {
-            Common.Driver.Close();
-        }
+
     }
 }

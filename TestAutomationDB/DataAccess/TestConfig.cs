@@ -12,6 +12,7 @@ namespace TestAutomationDbDataAccess
 {
     public static class TestConfig
     {
+
         public static List<TestAutomationDbModels.TestConfig> BasicGetList(string key = null )
         {
             string connetionString = null;
