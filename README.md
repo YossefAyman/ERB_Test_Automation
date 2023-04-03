@@ -8,9 +8,11 @@
 
 📈 Enterprise Resource Planning System
 
-![image](https://user-images.githubusercontent.com/55799355/229521117-934599f5-2277-4156-82c1-25a08dcd37a1.png)
+
+![image](https://user-images.githubusercontent.com/55799355/229522052-1e217514-8a28-40e0-943e-bdaf6441e6e7.png)
 
 
+                                             
 🔖 ERB is a software system used to manage and maintain the functions of a business. The tasks are typically done in real-time.
  
 ➕ It's designed to help companies store, manage, and use data regarding their daily and regular processes,
