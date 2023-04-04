@@ -62,7 +62,7 @@ namespace ERP_Automation_Testing
         }
          private enum PersonnalAffairs_ITEMS
         {
-            DesignationType = 1 
+            DesignationType = 1 , JobGrade = 2
         }
 
         static IWebDriver Driver = Automation_Testing.Common.Driver;
@@ -121,7 +121,8 @@ namespace ERP_Automation_Testing
 
 
         static By PersonnalAffairs_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > a");
-        static By DesignationType_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.DesignationType + ") > a");
+        static By DesignationType_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.DesignationType + ") > a");
+        static By JobGrade_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.JobGrade + ") > a");
 
 
 
@@ -316,7 +317,11 @@ namespace ERP_Automation_Testing
 
         public static void DesignationTypePage()
         {
-            Open(PersonnalAffairs_Module, DesignationType_page);
+            Open(PersonnalAffairs_Module, DesignationType_Page);
+        }
+        public static void JobGradePage()
+        {
+            Open(PersonnalAffairs_Module, JobGrade_Page);
         }
 
     }

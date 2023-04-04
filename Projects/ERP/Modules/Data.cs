@@ -559,6 +559,26 @@ namespace ERP_Automation_Testing
 
 
         }
+        public struct M1HR_JobGrade
+        {
+            /// /////////////////// # Test_Index_HR_M1_P1_Add_DesignationType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_JobGrade = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P2_JobGrade");
+
+
+
+            public static string JobGradeName
+            {
+                get
+                {
+                    return "الدرجه الوظيفيه_" + Test_Index_JobGrade.Value;
+                }
+                set {; }
+            }
+
+
+
+        }
 
 
 

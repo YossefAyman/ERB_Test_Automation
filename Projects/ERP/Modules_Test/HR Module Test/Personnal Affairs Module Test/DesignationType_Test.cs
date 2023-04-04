@@ -78,11 +78,11 @@ namespace ERP_Automation_Testing
         }
 
 
-        [TearDown]
-        public static void Test_End()
-        {
-            Common.Driver.Close();
+            [TearDown]
+            public static void Test_End()
+            {
+                Common.Driver.Close();
 
-        }
+            }
     }
 }

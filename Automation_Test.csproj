@@ -243,6 +243,7 @@
     <Compile Include="Projects\ERP\Modules\General Sittings Module\Country_Page.cs" />
     <Compile Include="Projects\ERP\Modules\General Sittings Module\District_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\DesignationType_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\JobGrade_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Inventories Module\AddingPermission_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Inventories Module\Brand_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Inventories Module\InventoryCategory_Page.cs" />
@@ -269,6 +270,7 @@
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\BankAccount_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\Bank_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\DesignationType_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\JobGrade_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Integration Module Test\CheckAddingPermisionWithRestrctions_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\CostCenter.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\Currency_Test.cs" />
