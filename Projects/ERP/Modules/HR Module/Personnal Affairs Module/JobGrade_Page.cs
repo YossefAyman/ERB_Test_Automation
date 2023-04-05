@@ -38,13 +38,13 @@ namespace ERP_Automation_Testing
         public static void Add_JobGrade()
         {
             Driver.FindElement(Add_Button).Click();
-            Driver.FindElement(JobGrade_Name).SendKeys(Data.M1HR_JobGrade.JobGradeName);
+            Driver.FindElement(JobGrade_Name).SendKeys(Data.M1HR.JobGradeName);
             Driver.FindElement(Save_Button).Click();
         }
 
         public static void Edit_JobGrade(string JobGrade)
         {
-            Search(Data.M1HR_JobGrade.JobGradeName);
+            Search(Data.M1HR.JobGradeName);
             Driver.FindElement(Edit_Button).Click();
             Driver.FindElement(JobGrade_Name).Clear();
             Driver.FindElement(JobGrade_Name).SendKeys(JobGrade);

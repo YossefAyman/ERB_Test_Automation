@@ -32,6 +32,12 @@ namespace Automation_Testing
             NOT_EXIST = 2,
             REPEATED = 3,
         }
+
+        public static void OpenDriver()
+        {
+            Driver = new ChromeDriver(@"C:\");
+
+        }
         public static bool IsElementPresent(By by)
         {
             try

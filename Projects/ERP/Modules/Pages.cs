@@ -15,7 +15,7 @@ using OpenQA.Selenium.Support.UI;
 namespace ERP_Automation_Testing
 {
 
-    class Pages
+    class Pages 
     {
         private enum MENU_ITEMS
         {
@@ -62,10 +62,8 @@ namespace ERP_Automation_Testing
         }
          private enum PersonnalAffairs_ITEMS
         {
-            DesignationType = 1 , JobGrade = 2
+            DesignationType = 1 , JobGrade = 2 , FinancialDisclosure = 3
         }
-
-        static IWebDriver Driver = Automation_Testing.Common.Driver;
 
         static By Profiling_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PROFILES + ") > a");
         static By Customers_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PROFILES + ") > ul > li:nth-child(" + (int)PROFILES_ITEMS.CUSTOMERS + ") > a");
@@ -120,21 +118,22 @@ namespace ERP_Automation_Testing
         static By Property_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ESTATE + ") > ul > li:nth-child(" + (int)Estate_ITEMS.property + ") > a");
 
 
-        static By PersonnalAffairs_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > a");
-        static By DesignationType_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.DesignationType + ") > a");
-        static By JobGrade_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.JobGrade + ") > a");
+        static By PersonnalAffairs_Module =             By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > a");
+        static By DesignationType_Page =                By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.DesignationType + ") > a");
+        static By JobGrade_Page =                       By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.JobGrade + ") > a");
+        static By FinancialDisclosure_Page =            By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.FinancialDisclosure + ") > a");
 
 
 
 
         public static void Open(By Module, By Page)
         {
-            if (Driver.FindElement(Module).GetAttribute("class") != "open")
+            if (Automation_Testing.Common.Driver.FindElement(Module).GetAttribute("class") != "open")
             {
-                Driver.FindElement(Module).Click();
+                Automation_Testing.Common.Driver.FindElement(Module).Click();
             }
             time.Sleep(1000);
-            Driver.FindElement(Page).Click();
+            Automation_Testing.Common.Driver.FindElement(Page).Click();
             time.Sleep(3000);
         }
 
@@ -322,6 +321,10 @@ namespace ERP_Automation_Testing
         public static void JobGradePage()
         {
             Open(PersonnalAffairs_Module, JobGrade_Page);
+        }
+        public static void FinancialDisclosurePage()
+        {
+            Open(PersonnalAffairs_Module, FinancialDisclosure_Page);
         }
 
     }

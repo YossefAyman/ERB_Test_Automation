@@ -20,7 +20,7 @@ namespace ERP_Automation_Testing
     [TestFixture]
     public class HR_M1_P1_DesignationType_Page
     {
-        [SetUp]
+        [OneTimeSetUp]
         public static void Test_Init()
         {
             Automation_Testing.Common.Driver.Manage().Window.Maximize();
@@ -28,47 +28,47 @@ namespace ERP_Automation_Testing
             DesignationType_Page.Goto();
         }
 
-        [Test]
+        [Test, Order(1)]
         public static void T1_Add_DesignationType()
         {
-            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.M1HR_DesignationType.Test_Index_Add_DesignationType);
-            Data.M1HR_DesignationType.Test_Index_Add_DesignationType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P1_Add_DesignationType");
+            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.M1HR.Test_Index_Add_DesignationType);
+            Data.M1HR.Test_Index_Add_DesignationType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P1_Add_DesignationType");
             DesignationType_Page.Add_DesignationType();
-            Assert.IsTrue(DesignationType_Page.Search(Data.M1HR_DesignationType.DesignationType_Name) == "Exist", "T1_Add_DesignationType_Test Failed");
+            Assert.IsTrue(DesignationType_Page.Search(Data.M1HR.DesignationType_Name) == "Exist", "T1_Add_DesignationType_Test Failed");
         }
 
-        [Test]
+        [Test, Order(2)]
         public static void T2_Update_DesignationType()
         {
-            DesignationType_Page.Edit_DesignationType(Data.M1HR_DesignationType.DesignationType_Name + "_Edited");
-            Assert.IsTrue(DesignationType_Page.Search(Data.M1HR_DesignationType.DesignationType_Name + "_Edited") == "Exist", "T2_Update_DesignationType_Test Failed");
+            DesignationType_Page.Edit_DesignationType(Data.M1HR.DesignationType_Name + "_Edited");
+            Assert.IsTrue(DesignationType_Page.Search(Data.M1HR.DesignationType_Name + "_Edited") == "Exist", "T2_Update_DesignationType_Test Failed");
         }
 
 
-        [Test]
+        [Test, Order(3)]
         public static void T3_Delete_DesignationType()
         {
-            DesignationType_Page.Delete_DesignationType(Data.M1HR_DesignationType.DesignationType_Name);
-            Assert.IsTrue(DesignationType_Page.Search(Data.M1HR_DesignationType.DesignationType_Name) != "Exist", "T3_Delete_DesignationType_Test Failed");
+            DesignationType_Page.Delete_DesignationType(Data.M1HR.DesignationType_Name);
+            Assert.IsTrue(DesignationType_Page.Search(Data.M1HR.DesignationType_Name) != "Exist", "T3_Delete_DesignationType_Test Failed");
 
 
         }
 
-        [Test]
+        [Test, Order(4)]
         public static void T4_DesignationTypeHappyScenario()
         {
-            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.M1HR_DesignationType.Test_Index_Add_DesignationType);
-            Data.M1HR_DesignationType.Test_Index_Add_DesignationType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P1_Add_DesignationType");
+            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.M1HR.Test_Index_Add_DesignationType);
+            Data.M1HR.Test_Index_Add_DesignationType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P1_Add_DesignationType");
             DesignationType_Page.Add_DesignationType();
-            if (Data.check(DesignationType_Page.Search(Data.M1HR_DesignationType.DesignationType_Name) == "Exist", "T1_Add_DesignationType_Test Failed"))
+            if (Data.check(DesignationType_Page.Search(Data.M1HR.DesignationType_Name) == "Exist", "T1_Add_DesignationType_Test Failed"))
             {
-                DesignationType_Page.Edit_DesignationType(Data.M1HR_DesignationType.DesignationType_Name + "_Edited");
+                DesignationType_Page.Edit_DesignationType(Data.M1HR.DesignationType_Name + "_Edited");
 
-                if (Data.check(DesignationType_Page.Search(Data.M1HR_DesignationType.DesignationType_Name + "_Edited") == "Exist", "T2_Update_DesignationType_Test Failed"))
+                if (Data.check(DesignationType_Page.Search(Data.M1HR.DesignationType_Name + "_Edited") == "Exist", "T2_Update_DesignationType_Test Failed"))
                 {
-                    DesignationType_Page.Delete_DesignationType(Data.M1HR_DesignationType.DesignationType_Name);
+                    DesignationType_Page.Delete_DesignationType(Data.M1HR.DesignationType_Name);
 
-                    Data.check(DesignationType_Page.Search(Data.M1HR_DesignationType.DesignationType_Name) != "Exist", "T3_Delete_DesignationType_Test Failed");
+                    Data.check(DesignationType_Page.Search(Data.M1HR.DesignationType_Name) != "Exist", "T3_Delete_DesignationType_Test Failed");
 
 
                 }
@@ -78,11 +78,11 @@ namespace ERP_Automation_Testing
         }
 
 
-            [TearDown]
+        [OneTimeTearDown]
             public static void Test_End()
             {
-                Common.Driver.Close();
+            Common.Driver.Dispose();
 
-            }
+        }
     }
 }

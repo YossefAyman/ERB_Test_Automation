@@ -20,44 +20,45 @@ namespace ERP_Automation_Testing
     [TestFixture]
     public class HR_M1_P2_JobGrade
     {
-        [SetUp]
+        [OneTimeSetUp]
         public static void Test_Init()
         {
+            Automation_Testing.Common.OpenDriver();
             Automation_Testing.Common.Driver.Manage().Window.Maximize();
             Login_Page.LoginAsAdmin();
             JobGrade_Page.Goto();
         }
-        [Test]
+        [Test, Order(1)]
         public static void T1_Add_JobGrade()
         {
-            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.M1HR_JobGrade.Test_Index_JobGrade);
-            Data.M1HR_JobGrade.Test_Index_JobGrade = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P2_JobGrade");
+            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.M1HR.Test_Index_JobGrade);
+            Data.M1HR.Test_Index_JobGrade = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P2_JobGrade");
             JobGrade_Page.Add_JobGrade();
-            Assert.IsTrue(JobGrade_Page.Search(Data.M1HR_JobGrade.JobGradeName) == "Exist", "T1_Add_JobGrade_Test Failed");
+            Assert.IsTrue(JobGrade_Page.Search(Data.M1HR.JobGradeName) == "Exist", "T1_Add_JobGrade_Test Failed");
         }
 
-        [Test]
+        [Test , Order(2)]
         public static void T2_Update_JobGrade()
         {
-            JobGrade_Page.Edit_JobGrade(Data.M1HR_JobGrade.JobGradeName + "_Edited");
-            Assert.IsTrue(JobGrade_Page.Search(Data.M1HR_JobGrade.JobGradeName + "_Edited") == "Exist", "T2_Update_JobGrade_Test Failed");
+            JobGrade_Page.Edit_JobGrade(Data.M1HR.JobGradeName + "_Edited");
+            Assert.IsTrue(JobGrade_Page.Search(Data.M1HR.JobGradeName + "_Edited") == "Exist", "T2_Update_JobGrade_Test Failed");
         }
 
 
-        [Test]
+        [Test , Order(3)]
         public static void T3_Delete_DesignationType()
         {
-            JobGrade_Page.Delete_JobGrade(Data.M1HR_JobGrade.JobGradeName);
-            Assert.IsTrue(JobGrade_Page.Search(Data.M1HR_JobGrade.JobGradeName) != "Exist", "T3_Delete_JobGrade_Test Failed");
+            JobGrade_Page.Delete_JobGrade(Data.M1HR.JobGradeName);
+            Assert.IsTrue(JobGrade_Page.Search(Data.M1HR.JobGradeName) != "Exist", "T3_Delete_JobGrade_Test Failed");
 
 
         }
 
 
-        [TearDown]
+        [OneTimeTearDown]
         public static void Test_End()
         {
-            Common.Driver.Close();
+            Common.Driver.Dispose();
 
         }
     }

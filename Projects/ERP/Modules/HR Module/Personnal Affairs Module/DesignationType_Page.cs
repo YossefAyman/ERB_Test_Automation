@@ -40,13 +40,13 @@ namespace ERP_Automation_Testing
         public static void Add_DesignationType()
         {
             Driver.FindElement(Add_Button).Click();
-            Driver.FindElement(DesignationType_Name).SendKeys(Data.M1HR_DesignationType.DesignationType_Name);
+            Driver.FindElement(DesignationType_Name).SendKeys(Data.M1HR.DesignationType_Name);
             Driver.FindElement(Save_Button).Click();
         }
 
         public static void Edit_DesignationType(string DesignationName)
         {
-            Search(Data.M1HR_DesignationType.DesignationType_Name);
+            Search(Data.M1HR.DesignationType_Name);
             Driver.FindElement(Edit_Button).Click();
             Driver.FindElement(DesignationType_Name).Clear();
             Driver.FindElement(DesignationType_Name).SendKeys(DesignationName);

@@ -539,33 +539,30 @@ namespace ERP_Automation_Testing
 
 
 
-        public struct M1HR_DesignationType
+        public struct M1HR
         {
+            public static string employeeName = "موظف_109";
+
             /// /////////////////// # Test_Index_HR_M1_P1_Add_DesignationType # /////////////////////////////////////////////
 
             public static TestAutomationDbModels.TestConfig Test_Index_Add_DesignationType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P1_Add_DesignationType");
 
+            /// /////////////////// # Test_Index_HR_M1_P2_JobGrade # /////////////////////////////////////////////
 
+            public static TestAutomationDbModels.TestConfig Test_Index_JobGrade = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P2_JobGrade");
+
+            /// /////////////////// # Test_Index_HR_M1_P3_FinancialDisclosure # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_FinancialDisclosure = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P3_FinancialDisclosure");
 
             public static string DesignationType_Name
             {
                 get
                 {
-                    return "_نوع التعيين" + Test_Index_Add_DesignationType.Value;
+                    return "نوع التعيين _" + Test_Index_Add_DesignationType.Value;
                 }
                 set {; }
             }
-
-
-
-        }
-        public struct M1HR_JobGrade
-        {
-            /// /////////////////// # Test_Index_HR_M1_P1_Add_DesignationType # /////////////////////////////////////////////
-
-            public static TestAutomationDbModels.TestConfig Test_Index_JobGrade = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P2_JobGrade");
-
-
 
             public static string JobGradeName
             {
@@ -575,11 +572,17 @@ namespace ERP_Automation_Testing
                 }
                 set {; }
             }
-
-
+             public static string FinancialDisclosure_Description
+            {
+                get
+                {
+                    return "وصف الذمه الماليه_" + Test_Index_FinancialDisclosure.Value;
+                }
+                set {; }
+            }
 
         }
-
+     
 
 
 
