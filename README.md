@@ -19,4 +19,5 @@
 ERP keeps track of a wealth of information, including payroll, raw materials, business commitments, purchase orders, and capacity for production,
 ERP software is part of the IT sector, and because of its usefulness and success, it is now considered a multi-billion-dollar industry.
 
+
 ![image](https://user-images.githubusercontent.com/55799355/225656382-51cd4533-56d9-49e8-8395-255647780930.png)
