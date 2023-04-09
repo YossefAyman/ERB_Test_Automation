@@ -62,7 +62,9 @@ namespace ERP_Automation_Testing
         }
          private enum PersonnalAffairs_ITEMS
         {
-            DesignationType = 1 , JobGrade = 2 , FinancialDisclosure = 3
+            DesignationType = 1 , JobGrade = 2 , FinancialDisclosure = 3 , MilitaryServiceStatus = 4 , TheLeavingReason =5 , EmploymentType = 6 , N2_EmploymentType = 7 , SpecialNeeds = 8 ,
+            ReasonsForFinancialDisclosure = 9 , JobTitle = 10 , Skills = 11
+
         }
 
         static By Profiling_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PROFILES + ") > a");
@@ -122,6 +124,14 @@ namespace ERP_Automation_Testing
         static By DesignationType_Page =                By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.DesignationType + ") > a");
         static By JobGrade_Page =                       By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.JobGrade + ") > a");
         static By FinancialDisclosure_Page =            By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.FinancialDisclosure + ") > a");
+        static By MilitaryServiceStatus_Page =          By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.MilitaryServiceStatus + ") > a");
+        static By TheLeavingReason_Page =               By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.TheLeavingReason + ") > a");
+        static By EmploymentType_Page =                 By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.EmploymentType + ") > a");
+        static By N2_EmploymentType_Page =              By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.N2_EmploymentType + ") > a");
+        static By SpecialNeeds_Page =                   By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.SpecialNeeds + ") > a");
+        static By ReasonsForFinancialDisclosure_Page =  By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.ReasonsForFinancialDisclosure + ") > a");
+        static By JobTitle_Page =                       By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.JobTitle + ") > a");
+        static By Skills_Page =                         By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.Skills + ") > a");
 
 
 
@@ -325,6 +335,39 @@ namespace ERP_Automation_Testing
         public static void FinancialDisclosurePage()
         {
             Open(PersonnalAffairs_Module, FinancialDisclosure_Page);
+        }
+        public static void MilitaryServiceStatusPage()
+        {
+            Open(PersonnalAffairs_Module, MilitaryServiceStatus_Page);
+        }
+        public static void TheLeavingReasonPage()
+        {
+            Open(PersonnalAffairs_Module, TheLeavingReason_Page);
+        }
+         public static void EmploymentTypePage()
+        {
+            Open(PersonnalAffairs_Module, EmploymentType_Page);
+        }
+        public static void N2_EmploymentTypePage()
+        {
+            Open(PersonnalAffairs_Module, N2_EmploymentType_Page);
+        }
+        public static void SpecialNeedsPage()
+        {
+            Open(PersonnalAffairs_Module, SpecialNeeds_Page);
+        }
+        public static void ReasonsForFinancialDisclosurePage()
+        {
+            Open(PersonnalAffairs_Module, ReasonsForFinancialDisclosure_Page);
+        }
+        public static void JobTitlePage()
+        {
+            Open(PersonnalAffairs_Module, JobTitle_Page);
+        }
+        
+        public static void SkillsPage()
+        {
+            Open(PersonnalAffairs_Module, Skills_Page);
         }
 
     }

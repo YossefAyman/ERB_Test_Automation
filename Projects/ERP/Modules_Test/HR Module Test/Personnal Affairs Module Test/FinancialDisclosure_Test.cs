@@ -23,7 +23,11 @@ namespace ERP_Automation_Testing
         [OneTimeSetUp]
         public static void Test_Init()
         {
-            Automation_Testing.Common.Driver.Manage().Window.Maximize();
+            if (Common.Driver == null)
+            {
+                Common.OpenDriver();
+            }
+            Common.Driver.Manage().Window.Maximize();
             Login_Page.LoginAsAdmin();
             FinancialDisclosure_Page.Goto();
         }
@@ -55,7 +59,8 @@ namespace ERP_Automation_Testing
 
 
         }  
-/*        [Test, Order(3)]
+
+/*      [Test, Order(3)]
         public static void T3_Test()
         {
            var ss = FinancialDisclosure_Page.GetLastID();
@@ -67,6 +72,7 @@ namespace ERP_Automation_Testing
         public static void Test_End()
         {
             Common.Driver.Dispose();
+            Common.Driver = null;
 
         }
     }

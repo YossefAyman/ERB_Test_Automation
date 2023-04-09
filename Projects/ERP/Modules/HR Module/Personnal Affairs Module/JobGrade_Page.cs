@@ -17,15 +17,15 @@ namespace ERP_Automation_Testing
 
         // Selectors
 
-        static By Add_Button = By.ClassName("btnAddItem");
-        static By Save_Button = By.XPath("//input[@value='حفظ']");
-        static By JobGrade_Name = By.Id("EmploymentDegree_Name");
-        static By Search_TextBox = By.XPath("//input[@placeholder='بحث']");
-        static By Search_Button = By.XPath("//i[@class='fa fa-search']");
-        static By NumOfItems_Text = By.XPath("//*[@id=\"grid\"]/div[2]/div[2]/div/span");
-        static By Edit_Button = By.XPath("//i[@title='تعديل']");
-        static By FirstItemDelete_Button = By.ClassName("btnDeleteItem");
-        static By DeleteConfirm_Button = By.ClassName("confirm");
+        static By Add_Button =                  By.ClassName("btnAddItem");
+        static By Save_Button =                 By.XPath("//input[@value='حفظ']");
+        static By JobGrade_Name =               By.Id("EmploymentDegree_Name");
+        static By Search_TextBox =              By.XPath("//input[@placeholder='بحث']");
+        static By Search_Button =               By.XPath("//i[@class='fa fa-search']");
+        static By NumOfItems_Text =             By.XPath("//*[@id=\"grid\"]/div[2]/div[2]/div/span");
+        static By Edit_Button =                 By.XPath("//i[@title='تعديل']");
+        static By FirstItemDelete_Button =      By.ClassName("btnDeleteItem");
+        static By DeleteConfirm_Button =        By.ClassName("confirm");
 
 
         public static void Goto()

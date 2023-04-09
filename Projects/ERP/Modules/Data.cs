@@ -51,9 +51,11 @@ namespace ERP_Automation_Testing
         public static bool TestPassed = true;
         public static string[] letters = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "I", "S" };
         public const int TEST_INDEX = 18;
-        public static string Date = DateTime.Today.ToShortDateString().Replace("/", "-");
-        public static String DateValue = DateTime.Now.ToString("dd-MM-yyyy");
+        public static string Date =          DateTime.Today.ToShortDateString().Replace("/", "-");
+        public static String DateValue =     DateTime.Now.ToString("dd-MM-yyyy");
+ //     public static String RandomDate =    DateTime.Now.AddDays(new Random().Next(20)).ToString("dd-MM-yyyy");
         public static bool testingOnWebsite = false;
+
 
 
         // الملفات التعريفية
@@ -542,6 +544,15 @@ namespace ERP_Automation_Testing
         public struct M1HR
         {
             public static string employeeName = "موظف_109";
+            public static string militarySevices = "معفي";
+            public static string typeOfDisability = "اخرس";
+            public static string degreeOfDisability = "803";
+
+            /// /////////////////// # Test_Index_GetList # /////////////////////////////////////////////
+
+            //public static List<TestAutomationDbModels.TestConfig> TestIndexList = TestAutomationDbDataAccess.TestConfig.GetList();
+
+            //public static TestAutomationDbModels.TestConfig Test_Index_Add_DesignationType = TestIndexList.FirstOrDefault(x => x.Key == "Test_Index_HR_M1_P1_Add_DesignationType");
 
             /// /////////////////// # Test_Index_HR_M1_P1_Add_DesignationType # /////////////////////////////////////////////
 
@@ -554,6 +565,38 @@ namespace ERP_Automation_Testing
             /// /////////////////// # Test_Index_HR_M1_P3_FinancialDisclosure # /////////////////////////////////////////////
 
             public static TestAutomationDbModels.TestConfig Test_Index_FinancialDisclosure = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P3_FinancialDisclosure");
+
+            /// /////////////////// # Test_Index_HR_M1_P4_MilitaryServiceStatus # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_MilitaryServiceStatus = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P4_MilitaryServiceStatus");
+
+            /// /////////////////// # Test_Index_HR_M1_P5_LeavingReason # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_LeavingReason = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P5_LeavingReason");
+
+            /// /////////////////// # Test_Index_HR_M1_P6_Employment_Type # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_Employment_Type = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P6_EmploymentType");
+
+            /// /////////////////// # Test_Index_HR_M1_P7_N2_EmploymentType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_N2_Employment_Type = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P7_N2_EmploymentType");
+
+            /// /////////////////// # Test_Index_HR_M1_P8_SpecialNeeds # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_SpecialNeeds = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P8_SpecialNeeds");
+
+            /// /////////////////// # Test_Index_HR_M1_P9_ReasonsForFinancialDisclosure # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_ReasonsForFinancialDisclosure = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P9_ReasonsForFinancialDisclosure");
+
+            /// /////////////////// # Test_Index_HR_M1_P10_JobTitle # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_JobTitle = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P10_JobTitle");
+
+            /// /////////////////// # Test_Index_HR_M1_P11_Skills # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_Skills = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P11_Skills");
 
             public static string DesignationType_Name
             {
@@ -580,6 +623,86 @@ namespace ERP_Automation_Testing
                 }
                 set {; }
             }
+            public static string LeavingReason_Name
+            {
+                get
+                {
+                    return "سبب الترك_" + Test_Index_LeavingReason.Value;
+                }
+                set {; }
+            }
+            public static string Employment_Type_Name
+            {
+                get
+                {
+                    return "نوع العمل_" + Test_Index_Employment_Type.Value;
+                }
+                set {; }
+            }
+            public static string N2_Employment_Type_Name
+                {
+                    get
+                    {
+                        return "نوع التوظيف_" + Test_Index_N2_Employment_Type.Value;
+                    }
+                    set {; }
+                }
+            public static string SpecialNeedCertifNum
+                {
+                    get
+                    {
+                        return Test_Index_SpecialNeeds.Value;
+                    }
+                    set {; }
+                }
+            public static string SpecialNeedDec
+                {
+                    get
+                    {
+                        return "وصف  ذوي الاعاقه_" + Test_Index_SpecialNeeds.Value;
+                    }
+                    set {; }
+                }
+            public static string ReasonForFinancialDisclosure
+            {
+                    get
+                    {
+                        return "سبب تقديم الذمه الماليه_" + Test_Index_ReasonsForFinancialDisclosure.Value;
+                    }
+                    set {; }
+                }
+            public static string JobTitle_Name
+            {
+                    get
+                    {
+                        return "المسمى الوظيفي_" + Test_Index_JobTitle.Value;
+                    }
+                    set {; }
+                }
+            public static string JobTitle_Dec
+            {
+                    get
+                    {
+                        return "وصف المسمي الوظيفي_" + Test_Index_JobTitle.Value;
+                    }
+                    set {; }
+                }
+            public static string Skills_Name
+            {
+                    get
+                    {
+                        return "المهارة_" + Test_Index_Skills.Value;
+                    }
+                    set {; }
+                }
+            public static string Skills_Dec
+            {
+                    get
+                    {
+                        return "وصف المهارة_" + Test_Index_Skills.Value;
+                    }
+                    set {; }
+                }
 
         }
      
@@ -600,6 +723,15 @@ namespace ERP_Automation_Testing
             time.Sleep(1000);
             SendKeys.SendWait("{Enter}");
         }
+
+        public static string RandomDate()
+        {
+            Random gen = new Random();
+            int range = 5 * 365; //5 years          
+            DateTime randomDate = DateTime.Today.AddDays(-gen.Next(range));
+            return randomDate.ToString("dd-MM-yyyy");
+        }
+
         public class Buliding
 
         {

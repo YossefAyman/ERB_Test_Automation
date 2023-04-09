@@ -14,6 +14,7 @@ using Automation_Testing;
 using Aspose.Pdf.Operators;
 using ERP_Automation_Test.Projects.ERP.Modules.Profiles_Module;
 using Newtonsoft.Json.Linq;
+using Microsoft.Ajax.Utilities;
 
 namespace ERP_Automation_Testing
 {
@@ -23,11 +24,15 @@ namespace ERP_Automation_Testing
         [OneTimeSetUp]
         public static void Test_Init()
         {
-            Automation_Testing.Common.OpenDriver();
-            Automation_Testing.Common.Driver.Manage().Window.Maximize();
+            if (Common.Driver == null)
+            {
+                Common.OpenDriver();
+            }
+            Common.Driver.Manage().Window.Maximize();
             Login_Page.LoginAsAdmin();
             JobGrade_Page.Goto();
         }
+
         [Test, Order(1)]
         public static void T1_Add_JobGrade()
         {
@@ -46,7 +51,7 @@ namespace ERP_Automation_Testing
 
 
         [Test , Order(3)]
-        public static void T3_Delete_DesignationType()
+        public static void T3_Delete_JobGrade()
         {
             JobGrade_Page.Delete_JobGrade(Data.M1HR.JobGradeName);
             Assert.IsTrue(JobGrade_Page.Search(Data.M1HR.JobGradeName) != "Exist", "T3_Delete_JobGrade_Test Failed");
@@ -59,6 +64,7 @@ namespace ERP_Automation_Testing
         public static void Test_End()
         {
             Common.Driver.Dispose();
+            Common.Driver = null;
 
         }
     }

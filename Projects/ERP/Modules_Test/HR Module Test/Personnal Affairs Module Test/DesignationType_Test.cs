@@ -23,7 +23,11 @@ namespace ERP_Automation_Testing
         [OneTimeSetUp]
         public static void Test_Init()
         {
-            Automation_Testing.Common.Driver.Manage().Window.Maximize();
+            if (Common.Driver == null)
+            {
+                Common.OpenDriver();
+            }
+            Common.Driver.Manage().Window.Maximize();
             Login_Page.LoginAsAdmin();
             DesignationType_Page.Goto();
         }
@@ -82,6 +86,7 @@ namespace ERP_Automation_Testing
             public static void Test_End()
             {
             Common.Driver.Dispose();
+            Common.Driver = null;
 
         }
     }
