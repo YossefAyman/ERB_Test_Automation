@@ -63,7 +63,7 @@ namespace ERP_Automation_Testing
          private enum PersonnalAffairs_ITEMS
         {
             DesignationType = 1 , JobGrade = 2 , FinancialDisclosure = 3 , MilitaryServiceStatus = 4 , TheLeavingReason =5 , EmploymentType = 6 , N2_EmploymentType = 7 , SpecialNeeds = 8 ,
-            ReasonsForFinancialDisclosure = 9 , JobTitle = 10 , Skills = 11
+            ReasonsForFinancialDisclosure = 9 , JobTitle = 10 , Skills = 11 , Qualifications = 12 , Job = 13 , OrganizationUnit = 14 , WorkingYear = 16
 
         }
 
@@ -132,6 +132,10 @@ namespace ERP_Automation_Testing
         static By ReasonsForFinancialDisclosure_Page =  By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.ReasonsForFinancialDisclosure + ") > a");
         static By JobTitle_Page =                       By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.JobTitle + ") > a");
         static By Skills_Page =                         By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.Skills + ") > a");
+        static By Qualifications_Page =                 By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.Qualifications + ") > a");
+        static By Job_Page =                            By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.Job + ") > a");
+        static By OrganizationUnit_Page =               By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.OrganizationUnit + ") > a");
+        static By WorkingYear_Page =                    By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.WorkingYear + ") > a");
 
 
 
@@ -364,10 +368,25 @@ namespace ERP_Automation_Testing
         {
             Open(PersonnalAffairs_Module, JobTitle_Page);
         }
-        
         public static void SkillsPage()
         {
             Open(PersonnalAffairs_Module, Skills_Page);
+        }
+        public static void QualificationsPage()
+        {
+            Open(PersonnalAffairs_Module, Qualifications_Page);
+        }
+        public static void JobPage()
+        {
+            Open(PersonnalAffairs_Module, Job_Page);
+        }
+        public static void OrganizationUnitPage()
+        {
+            Open(PersonnalAffairs_Module, OrganizationUnit_Page);
+        } 
+        public static void WorkingYearPage()
+        {
+            Open(PersonnalAffairs_Module, WorkingYear_Page);
         }
 
     }

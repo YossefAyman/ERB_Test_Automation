@@ -543,10 +543,15 @@ namespace ERP_Automation_Testing
 
         public struct M1HR
         {
-            public static string employeeName = "موظف_109";
-            public static string militarySevices = "معفي";
-            public static string typeOfDisability = "اخرس";
-            public static string degreeOfDisability = "803";
+            public static string employeeName               = "موظف_109";
+            public static string militarySevices            = "معفي";
+            public static string typeOfDisability           = "اخرس";
+            public static string degreeOfDisability         = "803";
+            public static string OrganizationUnit           = "ادارة المشتريات";
+            public static string Skill                      = "ICDL";
+            public static string SkillLevel                 = "جيد جدا";
+            public static string WorkingYearStatus          = "مغلقة";
+
 
             /// /////////////////// # Test_Index_GetList # /////////////////////////////////////////////
 
@@ -597,6 +602,22 @@ namespace ERP_Automation_Testing
             /// /////////////////// # Test_Index_HR_M1_P11_Skills # /////////////////////////////////////////////
 
             public static TestAutomationDbModels.TestConfig Test_Index_Skills = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P11_Skills");
+
+            /// /////////////////// # Test_Index_HR_M1_P12_Qualifications # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_Qualification = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P12_Qualifications");
+
+            /// /////////////////// # Test_Index_HR_M1_P13_Job # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_Job = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P13_Job");
+
+            /// /////////////////// # Test_Index_HR_M1_P14_OrganizationUnit # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_OrganizationUnit = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P14_OrganizationUnit");
+
+            /// /////////////////// # Test_Index_HR_M1_P16_WorkingYear # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_WorkingYear  = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P16_WorkingYear");
 
             public static string DesignationType_Name
             {
@@ -703,6 +724,55 @@ namespace ERP_Automation_Testing
                     }
                     set {; }
                 }
+            public static string Qualification_Name
+            {
+                    get
+                    {
+                        return "المؤهل_" + Test_Index_Qualification.Value;
+                    }
+                    set {; }
+                }
+            public static string Qualification_Dec
+            {
+                    get
+                    {
+                        return "وصف المؤهل_" + Test_Index_Qualification.Value;
+                    }
+                    set {; }
+                }    
+            public static string Job_Name
+            {
+                    get
+                    {
+                        return "الوظيفه _" + Test_Index_Job.Value;
+                    }
+                    set {; }
+                }
+            public static string Job_Desc
+            {
+                    get
+                    {
+                        return "وصف الوظيفه _" + Test_Index_Job.Value;
+                    }
+                    set {; }
+                }
+            public static string OrganizationUnit_Name
+            {
+                    get
+                    {
+                        return "وحده الهيكل التنظيمي_" + Test_Index_OrganizationUnit.Value;
+                    }
+                    set {; }
+                }
+            
+            public static string WorkingYear_Name
+            {
+                    get
+                    {
+                        return "سنة العمل _" + Test_Index_WorkingYear.Value;
+                    }
+                    set {; }
+                }
 
         }
      
@@ -727,7 +797,7 @@ namespace ERP_Automation_Testing
         public static string RandomDate()
         {
             Random gen = new Random();
-            int range = 5 * 365; //5 years          
+            int range = 5 * 365; // 5 years          
             DateTime randomDate = DateTime.Today.AddDays(-gen.Next(range));
             return randomDate.ToString("dd-MM-yyyy");
         }
@@ -744,7 +814,6 @@ namespace ERP_Automation_Testing
             public string Rent_Value = "2000";
             public string Owner = "";
             public string Distract = "مدينة نصر";
-
 
         }
 
