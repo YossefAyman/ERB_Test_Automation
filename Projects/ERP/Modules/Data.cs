@@ -551,6 +551,13 @@ namespace ERP_Automation_Testing
             public static string Skill                      = "ICDL";
             public static string SkillLevel                 = "جيد جدا";
             public static string WorkingYearStatus          = "مغلقة";
+            public static string SalaryType                 = "يومى";
+            public static string StartHoursWorkSystem       = "10:00:00";
+            public static string VacationType               = "رصيد موظف";
+            public static string MonthsOfTheYear            = "12";
+            public static string PersmissionType            = "حضور متأخر";
+            public static string WorkSystemPeriodName       = "فتره نظام صباحي";
+            public static string Specific_Word              = "محدد";
 
 
             /// /////////////////// # Test_Index_GetList # /////////////////////////////////////////////
@@ -618,6 +625,14 @@ namespace ERP_Automation_Testing
             /// /////////////////// # Test_Index_HR_M1_P16_WorkingYear # /////////////////////////////////////////////
 
             public static TestAutomationDbModels.TestConfig Test_Index_WorkingYear  = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P16_WorkingYear");
+
+            /// /////////////////// # Test_Index_HR_M1_P17_WorkSystem # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_WorkSystem  = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P17_WorkSystem");
+
+            /// /////////////////// # Test_Index_HR_M1_P18_ProceduresTypes # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_ProceduresTypes = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P18_ProceduresTypes");
 
             public static string DesignationType_Name
             {
@@ -770,6 +785,38 @@ namespace ERP_Automation_Testing
                     get
                     {
                         return "سنة العمل _" + Test_Index_WorkingYear.Value;
+                    }
+                    set {; }
+                }
+            public static string WorkSystem_Name
+            {
+                    get
+                    {
+                        return "نظام العمل _" + Test_Index_WorkSystem.Value;
+                    }
+                    set {; }
+                }
+            public static string WorkSystem_Desc
+            {
+                    get
+                    {
+                        return "وصف نظام العمل _" + Test_Index_WorkSystem.Value;
+                    }
+                    set {; }
+                } 
+            public static string ProcedureType_Name
+            {
+                    get
+                    {
+                        return "نوع الإجراء _" + Test_Index_ProceduresTypes.Value;
+                    }
+                    set {; }
+                }
+            public static string ProcedureType_Desc
+            {
+                    get
+                    {
+                        return "وصف نوع الاجراء _" + Test_Index_ProceduresTypes.Value;
                     }
                     set {; }
                 }

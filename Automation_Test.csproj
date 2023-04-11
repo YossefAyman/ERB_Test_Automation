@@ -252,11 +252,13 @@
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\MilitaryServiceStatus_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\LeavingReason_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\OrganizationUnit_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\ProceduresTypes_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\Qualifications_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\ReasonsForFinancialDisclosure_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\Skills_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\SpecialNeeds_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\WorkingYear_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\WorkSystem_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Inventories Module\AddingPermission_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Inventories Module\Brand_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Inventories Module\InventoryCategory_Page.cs" />
@@ -292,11 +294,13 @@
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\LeavingReason_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\MilitaryServiceStatus_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\OrganizationUnit_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\ProceduresTypes_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\Qualification_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\ReasonsForFinancialDisclosure_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\Skill_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\SpecialNeeds_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\WorkingYear_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\WorkSystem_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Integration Module Test\CheckAddingPermisionWithRestrctions_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\CostCenter.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\Currency_Test.cs" />

@@ -63,7 +63,7 @@ namespace ERP_Automation_Testing
          private enum PersonnalAffairs_ITEMS
         {
             DesignationType = 1 , JobGrade = 2 , FinancialDisclosure = 3 , MilitaryServiceStatus = 4 , TheLeavingReason =5 , EmploymentType = 6 , N2_EmploymentType = 7 , SpecialNeeds = 8 ,
-            ReasonsForFinancialDisclosure = 9 , JobTitle = 10 , Skills = 11 , Qualifications = 12 , Job = 13 , OrganizationUnit = 14 , WorkingYear = 16
+            ReasonsForFinancialDisclosure = 9 , JobTitle = 10 , Skills = 11 , Qualifications = 12 , Job = 13 , OrganizationUnit = 14 , WorkingYear = 16 , WorkSystem = 17 , ProceduresTypes = 18
 
         }
 
@@ -136,6 +136,8 @@ namespace ERP_Automation_Testing
         static By Job_Page =                            By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.Job + ") > a");
         static By OrganizationUnit_Page =               By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.OrganizationUnit + ") > a");
         static By WorkingYear_Page =                    By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.WorkingYear + ") > a");
+        static By WorkSystem_Page =                     By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.WorkSystem + ") > a");
+        static By ProceduresTypes_Page =                By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.ProceduresTypes + ") > a");
 
 
 
@@ -387,6 +389,14 @@ namespace ERP_Automation_Testing
         public static void WorkingYearPage()
         {
             Open(PersonnalAffairs_Module, WorkingYear_Page);
+        } 
+        public static void WorkSystemPage()
+        {
+            Open(PersonnalAffairs_Module, WorkSystem_Page);
+        }
+        public static void ProceduresTypesPage()
+        {
+            Open(PersonnalAffairs_Module, ProceduresTypes_Page);
         }
 
     }
