@@ -45,7 +45,7 @@ namespace ERP_Automation_Testing
         [Test, Order(2)]
         public static void T2_Update_Qualification()
         {
-            Qualifications_Page.Edit_Qualification(Data.M1HR.Qualification_Name + "_Edited");
+            Qualifications_Page.Edit_Qualification(Data.M1HR.Qualification_Name + "_Edited" , Data.M1HR.Qualification_Dec + "_Edited");
             Assert.IsTrue(Skills_Page.Search(Data.M1HR.Qualification_Name + "_Edited") == "Exist", "T2_Update_Qualification_Test Failed");
         }
 

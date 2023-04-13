@@ -48,14 +48,14 @@ namespace ERP_Automation_Testing
             time.Sleep(3000);
         }
 
-        public static void Edit_Qualification(string Qualification)
+        public static void Edit_Qualification(string Qualification , string QualificationDesc)
         {
             Search(Data.M1HR.Qualification_Name);
             Driver.FindElement(Edit_Button).Click();
             Driver.FindElement(QualificationName).Clear();
             Driver.FindElement(QualificationName).SendKeys(Qualification);
             Driver.FindElement(QualificationDescription).Clear();
-            Driver.FindElement(QualificationDescription).SendKeys(Data.M1HR.Qualification_Dec + "_Edited");
+            Driver.FindElement(QualificationDescription).SendKeys(QualificationDesc);
             Driver.FindElement(Save_Button).Click();
             time.Sleep(3000);
         }

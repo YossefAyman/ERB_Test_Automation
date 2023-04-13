@@ -92,14 +92,14 @@ namespace ERP_Automation_Testing
                time.Sleep(3000);
            } */
 
-        public static void Edit_Job(string Job)
+        public static void Edit_Job(string Job , string Job_Desc)
            {
                Search(Data.M1HR.Job_Name);
                Driver.FindElement(Edit_Button).Click();
                Driver.FindElement(JobName).Clear();
                Driver.FindElement(JobName).SendKeys(Job);
                Driver.FindElement(Job_Description).Clear();
-               Driver.FindElement(Job_Description).SendKeys(Data.M1HR.Job_Desc + "_Edited");
+               Driver.FindElement(Job_Description).SendKeys(Job_Desc);
                Driver.FindElement(Save_Button).Click();
                time.Sleep(3000);
            }

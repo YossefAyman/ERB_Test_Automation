@@ -242,7 +242,10 @@
     <Compile Include="Projects\ERP\Modules\General Sittings Module\City_Page.cs" />
     <Compile Include="Projects\ERP\Modules\General Sittings Module\Country_Page.cs" />
     <Compile Include="Projects\ERP\Modules\General Sittings Module\District_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\LeaveType_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\PermissionType_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\DesignationType_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\EmployeesProcedures_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\EmploymentType_N2_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\EmploymentType_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\FinancialDisclosure_Page.cs" />
@@ -284,7 +287,10 @@
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\Account_Reports_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\BankAccount_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\Bank_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Attendance and Departure  Module Test\LeaveType_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Attendance and Departure  Module Test\PermissionType_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\DesignationType_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\EmployeesProcedures_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\EmploymentType_N2_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\EmploymentType_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\FinancialDisclosure_Test.cs" />
@@ -472,7 +478,6 @@
     <Folder Include="fonts\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Projects\ERP\Modules\Accounts_module\" />
-    <Folder Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\" />
     <Folder Include="Projects\ERP\Modules\HR Module\Salaries Module\" />
   </ItemGroup>
   <ItemGroup>

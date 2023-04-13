@@ -45,7 +45,7 @@ namespace ERP_Automation_Testing
         [Test, Order(2)]
         public static void T2_Update_JobTitle()
         {
-            JobTitle_Page.Edit_JobTitle();
+            JobTitle_Page.Edit_JobTitle(Data.M1HR.JobTitle_Name + "_Edited" , Data.M1HR.JobTitle_Dec + "_Edited");
             Assert.IsTrue(JobTitle_Page.Search(Data.M1HR.JobTitle_Name + "_Edited") == "Exist", "T2_Update_JobTitle_Test Failed");
         }
 

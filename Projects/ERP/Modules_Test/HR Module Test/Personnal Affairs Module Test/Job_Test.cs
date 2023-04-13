@@ -45,7 +45,7 @@ namespace ERP_Automation_Testing
         [Test, Order(2)]
         public static void T2_Update_JobGrade()
         {
-            Job_Page.Edit_Job(Data.M1HR.Job_Name + "_Edited");
+            Job_Page.Edit_Job(Data.M1HR.Job_Name + "_Edited" , Data.M1HR.Job_Desc + "_Edited");
             Assert.IsTrue(Job_Page.Search(Data.M1HR.Job_Name + "_Edited") == "Exist", "T2_Update_Job_Test Failed");
         }
 

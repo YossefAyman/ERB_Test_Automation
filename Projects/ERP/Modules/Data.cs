@@ -50,6 +50,8 @@ namespace ERP_Automation_Testing
         //public static string pwd = "1234";
         public static bool TestPassed = true;
         public static string[] letters = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "I", "S" };
+        public static Random randomindex = new Random();
+        public static int index_Letters = randomindex.Next(letters.Count());
         public const int TEST_INDEX = 18;
         public static string Date =          DateTime.Today.ToShortDateString().Replace("/", "-");
         public static String DateValue =     DateTime.Now.ToString("dd-MM-yyyy");
@@ -134,14 +136,7 @@ namespace ERP_Automation_Testing
             public static string Demandlimitforinventory = "30";
             public static string Validityduration = "21555211";
             public static string Tax = "50";
-            /*public static string ItemName = "بفتيك";
-            public static string Itemcode = "123";
-            public static string ItemDescription = "وصف";
-            public static string ItempurchasePrice = "1500";
-            public static string ItemPrice = "300";
-            public static string ItemUnit = "300";
-            public static string Barcode = "012215452112";
-            */
+          
             public static string ItemName
             {
 
@@ -543,7 +538,7 @@ namespace ERP_Automation_Testing
 
         public struct M1HR
         {
-            public static string employeeName               = "موظف_109";
+            public static string employeeName               = "موظف_101";
             public static string militarySevices            = "معفي";
             public static string typeOfDisability           = "اخرس";
             public static string degreeOfDisability         = "803";
@@ -558,6 +553,10 @@ namespace ERP_Automation_Testing
             public static string PersmissionType            = "حضور متأخر";
             public static string WorkSystemPeriodName       = "فتره نظام صباحي";
             public static string Specific_Word              = "محدد";
+            public static string Procedure_Name             = "اجراء رفد";
+            public static string ProcedureForHiringEmployee_Name = "إجراء تعيين";
+            public static string Employee_Status_Name       = "اعزب";
+            public static string StartDateForEmployee ;
 
 
             /// /////////////////// # Test_Index_GetList # /////////////////////////////////////////////
@@ -633,6 +632,10 @@ namespace ERP_Automation_Testing
             /// /////////////////// # Test_Index_HR_M1_P18_ProceduresTypes # /////////////////////////////////////////////
 
             public static TestAutomationDbModels.TestConfig Test_Index_ProceduresTypes = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P18_ProceduresTypes");
+
+            /// /////////////////// # Test_Index_HR_M1_P19_EmployeesProcedures # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_EmployeesProcedures = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M1_P19_EmployeesProcedures");
 
             public static string DesignationType_Name
             {
@@ -819,11 +822,64 @@ namespace ERP_Automation_Testing
                         return "وصف نوع الاجراء _" + Test_Index_ProceduresTypes.Value;
                     }
                     set {; }
+                } 
+            public static string EmployeeProcedure_Name
+            {
+                    get
+                    {
+                        return "اجراء موظف _" + Test_Index_EmployeesProcedures.Value;
+                    }
+                    set {; }
+                }
+            public static string EmployeeProcedure_Desc
+            {
+                    get
+                    {
+                        return "وصف اجراء موظف _" + Test_Index_EmployeesProcedures.Value;
+                    }
+                    set {; }
                 }
 
         }
-     
 
+        public struct M2HR
+        {
+
+            /// /////////////////// # Test_Index_HR_M2_P1_PermissionType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_PermissionType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M2_P1_PermissionType");
+
+            /// /////////////////// # Test_Index_HR_M2_P2_LeaveType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_LeaveType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M2_P2_LeaveType");
+
+
+            public static string PermissionType_Name
+            {
+                get
+                {
+                    return "نوع الإذن _ " + Test_Index_PermissionType.Value;
+                }
+                set {; }
+            }
+            public static string PermissionType_Desc
+            {
+                get
+                {
+                    return "وصف نوع الإذن _ " + Test_Index_PermissionType.Value;
+                }
+                set {; }
+            }
+            public static string LeaveType_Name
+            {
+                get
+                {
+                    return "نوع الاجازه _" + letters[index_Letters];
+                }
+                set {; }
+            }
+
+        }
 
 
         public static void Shortcut(String ShortKeys)
@@ -848,6 +904,7 @@ namespace ERP_Automation_Testing
             DateTime randomDate = DateTime.Today.AddDays(-gen.Next(range));
             return randomDate.ToString("dd-MM-yyyy");
         }
+
 
         public class Buliding
 

@@ -102,6 +102,36 @@ namespace TestAutomationDbDataAccess
 
 
         }
+        public static void InsertStartDateAndEmployeeName(string startDate , string employeeSalary , string employeeName)
+        {
+            string connetionString = null;
+            SqlConnection connection;
+            SqlCommand command;
+            string sql = null;
+
+            connetionString = WebConfigurationManager.AppSettings["ConnectString"];
+
+            if (startDate != null && employeeName != null)
+            {
+                sql = " INSERT INTO dbo.StartDateForEmployees ([StartDateForEmployee], [Salary] ,[Description]) VALUES('" + startDate + "', '" + employeeSalary + "', '" + employeeName + "') ";
+            }
+            connection = new SqlConnection(connetionString);
+            try
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                command.ExecuteReader();
+                command.Dispose();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not open connection ! " + ex);
+            }
+
+
+        }
 
     }
 }

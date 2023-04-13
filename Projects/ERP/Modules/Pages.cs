@@ -19,7 +19,7 @@ namespace ERP_Automation_Testing
     {
         private enum MENU_ITEMS
         {
-            PROFILES = 4, GENERAL_SITTINGS = 6, FINANCIALS = 8, INVENTORIES = 9, SALES = 10, PURCHASES = 11, ESTATE = 14, assets = 3 , PERSONAL_AFFAIRS = 20
+            PROFILES = 4, GENERAL_SITTINGS = 6, FINANCIALS = 8, INVENTORIES = 9, SALES = 10, PURCHASES = 11, ESTATE = 14, assets = 3 , PERSONAL_AFFAIRS = 20 , ATTENDANCE_AND_DEPARTURE = 21
         }
 
         private enum PROFILES_ITEMS
@@ -63,9 +63,16 @@ namespace ERP_Automation_Testing
          private enum PersonnalAffairs_ITEMS
         {
             DesignationType = 1 , JobGrade = 2 , FinancialDisclosure = 3 , MilitaryServiceStatus = 4 , TheLeavingReason =5 , EmploymentType = 6 , N2_EmploymentType = 7 , SpecialNeeds = 8 ,
-            ReasonsForFinancialDisclosure = 9 , JobTitle = 10 , Skills = 11 , Qualifications = 12 , Job = 13 , OrganizationUnit = 14 , WorkingYear = 16 , WorkSystem = 17 , ProceduresTypes = 18
+            ReasonsForFinancialDisclosure = 9 , JobTitle = 10 , Skills = 11 , Qualifications = 12 , Job = 13 , OrganizationUnit = 14 , WorkingYear = 16 , WorkSystem = 17 , ProceduresTypes = 18 ,
+            EmployeesProcedures = 19
 
         }
+
+        private enum AttendanceAndDeparture_ITEMS
+        {
+            PermissionType = 1 , LeaveType = 2
+        }
+
 
         static By Profiling_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PROFILES + ") > a");
         static By Customers_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PROFILES + ") > ul > li:nth-child(" + (int)PROFILES_ITEMS.CUSTOMERS + ") > a");
@@ -138,8 +145,13 @@ namespace ERP_Automation_Testing
         static By WorkingYear_Page =                    By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.WorkingYear + ") > a");
         static By WorkSystem_Page =                     By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.WorkSystem + ") > a");
         static By ProceduresTypes_Page =                By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.ProceduresTypes + ") > a");
+        static By EmployeesProcedures_Page =            By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > ul > li:nth-child(" + (int)PersonnalAffairs_ITEMS.EmployeesProcedures + ") > a");
 
 
+        static By Attendace_And_Departure_Module =      By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > a");
+        static By PermissionType_Page =                 By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.PermissionType + ") > a");
+        static By LeaveType_Page =                      By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.LeaveType + ") > a");
+         
 
 
         public static void Open(By Module, By Page)
@@ -330,6 +342,9 @@ namespace ERP_Automation_Testing
             Open(Financial_Module, Daily_Restrictions);
         }
 
+        /// /////////////////// # HR_MODULE_ONE_PAGES # /////////////////////////////////////////////
+
+
         public static void DesignationTypePage()
         {
             Open(PersonnalAffairs_Module, DesignationType_Page);
@@ -397,6 +412,22 @@ namespace ERP_Automation_Testing
         public static void ProceduresTypesPage()
         {
             Open(PersonnalAffairs_Module, ProceduresTypes_Page);
+        }
+        public static void EmployeesProceduresPage()
+        {
+            Open(PersonnalAffairs_Module, EmployeesProcedures_Page);
+        }
+
+        /// /////////////////// # HR_MODULE_TWO_PAGES # /////////////////////////////////////////////
+     
+        public static void PermissionTypePage()
+        {
+            Open(Attendace_And_Departure_Module, PermissionType_Page);
+        }
+        
+        public static void LeaveTypePage()
+        {
+            Open(Attendace_And_Departure_Module, LeaveType_Page);
         }
 
     }

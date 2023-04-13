@@ -52,12 +52,12 @@ namespace ERP_Automation_Testing
 
 
 
-        [OneTimeTearDown]
-        public static void Test_End()
-        {
-            Common.Driver.Dispose();
-            Common.Driver = null;
+        //[OneTimeTearDown]
+        //public static void Test_End()
+        //{
+        //    Common.Driver.Dispose();
+        //    Common.Driver = null;
 
-        }
+        //}
     }
 }
