@@ -41,16 +41,11 @@ namespace ERP_Automation_Testing
         static By WorkSystemRangeAddButton =                                    By.XPath("//button[@ng-click='addinSection($event)']//i[@class='fa fa-plus']");
         static By VacationAddButton =                                           By.XPath("//button[@ng-click='addinVacationSection($event)']");
         static By PermissionAddButton =                                         By.XPath("//button[@ng-click='addinPermissionSection($event)']//i[@class='fa fa-plus']");
-     // static By PermissionListCheckButton =                                   By.XPath("//a[@placeholder='نوع الإذن']//b");
         static By Sunday_CheckBox =                                             By.XPath("//label[@for='WorkSystem_WorkSystemWeekDay_Sunday']");
         static By Monday_CheckBox =                                             By.XPath("//label[@for='WorkSystem_WorkSystemWeekDay_Monday']");
         static By Tuesday_CheckBox =                                            By.XPath("//label[@for='WorkSystem_WorkSystemWeekDay_Tuesday']");
         static By Wednesday_CheckBox =                                          By.XPath("//label[@for='WorkSystem_WorkSystemWeekDay_Wednesday']");
         static By Thursday_CheckBox =                                           By.XPath("//label[@for='WorkSystem_WorkSystemWeekDay_Thursday']");
-        
-        
-        
-        
         static By Search_TextBox =                                              By.XPath("/html/body/div[2]/main/div/div/div[2]/div/div[2]/section/div/div/div[2]/div/div/div[1]/div[1]/div/input");
         static By Search_Button =                                               By.XPath("/html/body/div[2]/main/div/div/div[2]/div/div[2]/section/div/div/div[2]/div/div/div[1]/div[1]/div/span/button");
         static By NumOfItems_Text =                                             By.XPath("//*[@id=\"grid\"]/div[2]/div[2]/div/span");

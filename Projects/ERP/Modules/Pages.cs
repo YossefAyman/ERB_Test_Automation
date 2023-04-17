@@ -70,7 +70,7 @@ namespace ERP_Automation_Testing
 
         private enum AttendanceAndDeparture_ITEMS
         {
-            PermissionType = 1 , LeaveType = 2
+            PermissionType = 1 , LeaveType = 2 , AnnualHolidays = 5 , Permissions = 8
         }
 
 
@@ -151,6 +151,8 @@ namespace ERP_Automation_Testing
         static By Attendace_And_Departure_Module =      By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > a");
         static By PermissionType_Page =                 By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.PermissionType + ") > a");
         static By LeaveType_Page =                      By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.LeaveType + ") > a");
+        static By AnnualHolidays_Page =                 By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.AnnualHolidays + ") > a");
+        static By Permissions_Page =                    By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.Permissions + ") > a");
          
 
 
@@ -424,10 +426,17 @@ namespace ERP_Automation_Testing
         {
             Open(Attendace_And_Departure_Module, PermissionType_Page);
         }
-        
         public static void LeaveTypePage()
         {
             Open(Attendace_And_Departure_Module, LeaveType_Page);
+        }
+        public static void AnnualHolidaysPage()
+        {
+            Open(Attendace_And_Departure_Module, AnnualHolidays_Page);
+        }
+        public static void PermissionsPage()
+        {
+            Open(Attendace_And_Departure_Module, Permissions_Page);
         }
 
     }

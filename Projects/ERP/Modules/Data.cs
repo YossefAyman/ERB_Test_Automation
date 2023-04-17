@@ -49,9 +49,7 @@ namespace ERP_Automation_Testing
 
         //public static string pwd = "1234";
         public static bool TestPassed = true;
-        public static string[] letters = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "I", "S" };
-        public static Random randomindex = new Random();
-        public static int index_Letters = randomindex.Next(letters.Count());
+        public static string[] letters = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "I", "R" ,"S", "T" , "U" , "V" , "W" , "X" , "Y" , "Z" };
         public const int TEST_INDEX = 18;
         public static string Date =          DateTime.Today.ToShortDateString().Replace("/", "-");
         public static String DateValue =     DateTime.Now.ToString("dd-MM-yyyy");
@@ -63,36 +61,36 @@ namespace ERP_Automation_Testing
         // الملفات التعريفية
         public struct Customer
         {
-            public static string Name = "Customer_" + Data.TEST_INDEX;
-            public static string Email = "Customer_" + Data.TEST_INDEX + "@gmail.com";
-            public static string Number = Data.TEST_INDEX.ToString();
-            public static string ID_Type = "بطاقة شخصية";
-            public static string ID_Number = "12345123451234";
-            public static string Phone = "234234234";
-            public static string Mobile = "01112345678";
-            public static string Address = Data.TEST_INDEX + " Abbas El-Aqqad ST";
-            public static string Country = Data.Place.CountryName;
-            public static string Area = Data.Place.AreaName;
-            public static string City = Data.Place.CityName;
-            public static string District = Data.Place.DistrictName;
-            public static string Nationality = Data.Place.Nationality;
+            public static string Name =          "Customer_" + Data.TEST_INDEX;
+            public static string Email =         "Customer_" + Data.TEST_INDEX + "@gmail.com";
+            public static string Number =        Data.TEST_INDEX.ToString();
+            public static string ID_Type=        "بطاقة شخصية";
+            public static string ID_Number =     "12345123451234";
+            public static string Phone =         "234234234";
+            public static string Mobile =        "01112345678";
+            public static string Address =       Data.TEST_INDEX + " Abbas El-Aqqad ST";
+            public static string Country =       Data.Place.CountryName;
+            public static string Area =          Data.Place.AreaName;
+            public static string City =          Data.Place.CityName;
+            public static string District =      Data.Place.DistrictName;
+            public static string Nationality =   Data.Place.Nationality;
 
         }
 
         public struct Supplier
         {
-            public static string Name = "mohamed sayed";
-            public static string Email = "Supplier" + Data.TEST_INDEX + "@gmail.com";
-            public static string Phone = "234234234";
-            public static string Mobile = "01112345678";
-            public static string Address = "389 faisal";
-            public static string Country = "مصر";
-            public static string Area = "المنوفية";
-            public static string City = "شبين الكوم";
-            public static string District = "حي الاستاد";
-            public static string NationalID = "231122211222112";
-            public static string Describtion = "وصف";
-            public static string password = "aA123456";
+            public static string Name =          "mohamed sayed";
+            public static string Email =         "Supplier" + Data.TEST_INDEX + "@gmail.com";
+            public static string Phone =         "234234234";
+            public static string Mobile =        "01112345678";
+            public static string Address =       "389 faisal";
+            public static string Country =       "مصر";
+            public static string Area =          "المنوفية";
+            public static string City =          "شبين الكوم";
+            public static string District =      "حي الاستاد";
+            public static string NationalID =    "231122211222112";
+            public static string Describtion =   "وصف";
+            public static string password =      "aA123456";
         }
 
         public struct Technicians
@@ -844,6 +842,12 @@ namespace ERP_Automation_Testing
 
         public struct M2HR
         {
+            public static string permissionType        = "اذن ساعتين";
+            public static string PermissionTimeFrom    = "10:00:00";
+            public static string PermissionTimeTo      = "12:00:00";
+            public static string AmTime                = "Am";
+            public static string PermissionPeriod      = "2";
+
 
             /// /////////////////// # Test_Index_HR_M2_P1_PermissionType # /////////////////////////////////////////////
 
@@ -852,6 +856,14 @@ namespace ERP_Automation_Testing
             /// /////////////////// # Test_Index_HR_M2_P2_LeaveType # /////////////////////////////////////////////
 
             public static TestAutomationDbModels.TestConfig Test_Index_LeaveType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M2_P2_LeaveType");
+
+            /// /////////////////// # Test_Index_HR_M2_P5_AnnualHolidays # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_AnnualHoliday = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M2_P5_AnnualHolidays");
+
+            /// /////////////////// # Test_Index_HR_M2_P8_Permission # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_Permission = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M2_P8_Permission");
 
 
             public static string PermissionType_Name
@@ -874,7 +886,31 @@ namespace ERP_Automation_Testing
             {
                 get
                 {
-                    return "نوع الاجازه _" + letters[index_Letters];
+                    return "نوع الاجازه _" + letters[int.Parse(Test_Index_LeaveType.Value)];
+                }
+                set {; }
+            }
+            public static string AnnualHoliday_Name
+            {
+                get
+                {
+                    return "العطلة الرسمية _" + Test_Index_AnnualHoliday.Value;
+                }
+                set {; }
+            }
+            public static string AnnualHoliday_Desc
+            {
+                get
+                {
+                    return "وصف العطلة الرسمية _" + Test_Index_AnnualHoliday.Value;
+                }
+                set {; }
+            }
+            public static string PermissionReason
+            {
+                get
+                {
+                    return "سبب اضافه اذن _" + Test_Index_Permission.Value;
                 }
                 set {; }
             }

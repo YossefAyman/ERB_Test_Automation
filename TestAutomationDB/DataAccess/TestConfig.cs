@@ -113,7 +113,7 @@ namespace TestAutomationDbDataAccess
 
             if (startDate != null && employeeName != null)
             {
-                sql = " INSERT INTO dbo.StartDateForEmployees ([StartDateForEmployee], [Salary] ,[Description]) VALUES('" + startDate + "', '" + employeeSalary + "', '" + employeeName + "') ";
+                sql = " INSERT INTO [TestAutomation].[dbo].[StartDate&SalaryForEmployees] ([StartDateForEmployee], [Salary] ,[EmployeeName]) VALUES('" + startDate + "', '" + employeeSalary + "', N'" + employeeName + "') ";
             }
             connection = new SqlConnection(connetionString);
             try

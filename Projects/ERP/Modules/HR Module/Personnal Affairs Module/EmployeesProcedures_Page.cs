@@ -61,7 +61,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(Procedure_EndDate).SendKeys(Data.RandomDate());
             Driver.FindElement(Procedure_ActualDate).SendKeys(Data.RandomDate());
             //Data.M1HR.StartDateForEmployee = Driver.FindElement(Procedure_StartDate).GetAttribute("value");
-            //TestAutomationDbDataAccess.TestConfig.InsertStartDateAndEmployeeName(Data.M1HR.StartDateForEmployee, Data.M1HR.Test_Index_EmployeesProcedures.Value, Data.M1HR.employeeName);
+            //TestAutomationDbDataAccess.TestConfig.InsertStartDateAndEmployeeName(Data.M1HR.StartDateForEmployee, (int.Parse(Data.M1HR.Test_Index_EmployeesProcedures.Value) * 100).ToString(), Data.M1HR.employeeName);
             Driver.FindElement(Save_Button).Click();
             time.Sleep(2000);
         }
