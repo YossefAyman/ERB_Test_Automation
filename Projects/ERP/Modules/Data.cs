@@ -546,7 +546,7 @@ namespace ERP_Automation_Testing
             public static string WorkingYearStatus          = "مغلقة";
             public static string SalaryType                 = "يومى";
             public static string StartHoursWorkSystem       = "10:00:00";
-            public static string VacationType               = "رصيد موظف";
+            public static string VacationType               = "أجازه اعتياديه";
             public static string MonthsOfTheYear            = "12";
             public static string PersmissionType            = "حضور متأخر";
             public static string WorkSystemPeriodName       = "فتره نظام صباحي";
@@ -842,11 +842,17 @@ namespace ERP_Automation_Testing
 
         public struct M2HR
         {
-            public static string permissionType        = "اذن ساعتين";
-            public static string PermissionTimeFrom    = "10:00:00";
-            public static string PermissionTimeTo      = "12:00:00";
-            public static string AmTime                = "Am";
-            public static string PermissionPeriod      = "2";
+            public static string permissionType                                = "اذن ساعتين";
+            public static string PermissionTimeFrom                            = "10:00:00";
+            public static string PermissionTimeTo                              = "12:00:00";
+            public static string AmTime                                        = "Am";
+            public static string PermissionPeriod                              = "2";
+            public static DateTime VacationDate                                = DateTime.Now;
+            public static string VacationRequestDate                           = VacationDate.ToString("dd-MM-yyyy");
+            public static string VacationStartDate                             = VacationDate.AddDays(1).ToString("dd-MM-yyyy");
+            public static string VacationEndDate                               = VacationDate.AddDays(2).ToString("dd-MM-yyyy");
+            public static string DateOfStartWorkAfterVacation                  = VacationDate.AddDays(3).ToString("dd-MM-yyyy");
+            
 
 
             /// /////////////////// # Test_Index_HR_M2_P1_PermissionType # /////////////////////////////////////////////
@@ -864,6 +870,10 @@ namespace ERP_Automation_Testing
             /// /////////////////// # Test_Index_HR_M2_P8_Permission # /////////////////////////////////////////////
 
             public static TestAutomationDbModels.TestConfig Test_Index_Permission = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M2_P8_Permission");
+
+            /// /////////////////// # Test_Index_HR_M2_P10_Errand # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_Errand = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M2_P10_Errand");
 
 
             public static string PermissionType_Name
@@ -911,6 +921,14 @@ namespace ERP_Automation_Testing
                 get
                 {
                     return "سبب اضافه اذن _" + Test_Index_Permission.Value;
+                }
+                set {; }
+            }   
+            public static string Errand_Name
+            {
+                get
+                {
+                    return "ماموريه _" + Test_Index_Errand.Value;
                 }
                 set {; }
             }

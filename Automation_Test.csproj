@@ -243,9 +243,11 @@
     <Compile Include="Projects\ERP\Modules\General Sittings Module\Country_Page.cs" />
     <Compile Include="Projects\ERP\Modules\General Sittings Module\District_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\AnnualHolidays_Page.cs" />
-    <Compile Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\LeaveType_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\Errand_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\VacationType_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\Permissions_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\PermissionType_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\HR Module\Attendance and Departure  Module\Vacations_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\DesignationType_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\EmployeesProcedures_Page.cs" />
     <Compile Include="Projects\ERP\Modules\HR Module\Personnal Affairs Module\EmploymentType_N2_Page.cs" />
@@ -290,7 +292,9 @@
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\BankAccount_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Financial Module Test\Bank_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Attendance and Departure  Module Test\AnnualHolidays_Test.cs" />
-    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Attendance and Departure  Module Test\LeaveType_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Attendance and Departure  Module Test\Errand_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Attendance and Departure  Module Test\Vacations_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Attendance and Departure  Module Test\VacationType_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Attendance and Departure  Module Test\Permissions_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Attendance and Departure  Module Test\PermissionType_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\HR Module Test\Personnal Affairs Module Test\DesignationType_Test.cs" />

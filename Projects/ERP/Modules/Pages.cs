@@ -70,7 +70,7 @@ namespace ERP_Automation_Testing
 
         private enum AttendanceAndDeparture_ITEMS
         {
-            PermissionType = 1 , LeaveType = 2 , AnnualHolidays = 5 , Permissions = 8
+            PermissionType = 1 , LeaveType = 2 , AnnualHolidays = 5 , Permissions = 8 , Vacations = 9 , Errands = 10
         }
 
 
@@ -153,6 +153,8 @@ namespace ERP_Automation_Testing
         static By LeaveType_Page =                      By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.LeaveType + ") > a");
         static By AnnualHolidays_Page =                 By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.AnnualHolidays + ") > a");
         static By Permissions_Page =                    By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.Permissions + ") > a");
+        static By Vacations_Page =                      By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.Vacations + ") > a");
+        static By Errands_Page =                        By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ATTENDANCE_AND_DEPARTURE + ") > ul > li:nth-child(" + (int)AttendanceAndDeparture_ITEMS.Errands + ") > a");
          
 
 
@@ -437,6 +439,14 @@ namespace ERP_Automation_Testing
         public static void PermissionsPage()
         {
             Open(Attendace_And_Departure_Module, Permissions_Page);
+        }
+        public static void VacationsPage()
+        {
+            Open(Attendace_And_Departure_Module, Vacations_Page);
+        } 
+        public static void ErrandsPage()
+        {
+            Open(Attendace_And_Departure_Module, Errands_Page);
         }
 
     }
