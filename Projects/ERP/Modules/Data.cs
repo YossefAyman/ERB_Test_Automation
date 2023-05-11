@@ -293,7 +293,7 @@ namespace ERP_Automation_Testing
         }
         public class Estates
         {
-            public static string propertyType = "شقة";
+            public static string PropertyTypeName = "عمارة";
             public static string Name = "شقة العجمي";
             public static string owner = "احمد حسن";
             public static string propertyspace = "200";
@@ -309,8 +309,97 @@ namespace ERP_Automation_Testing
             public static string address = "مدينة نصر";
 
 
+            /// /////////////////// # Test_Index_Estate_P1_PropertyType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_PropertyType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P1_PropertyType");
+
+            /// /////////////////// # Test_Index_Estate_P2_Property # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_Property = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P2_Property");
+
+            /// /////////////////// # Test_Index_Estate_P3_SuspensionReason # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_SuspensionReason = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P3_SuspensionReason");
+
+            /// /////////////////// # Test_Index_Estate_P7_BanReason # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_BanReason = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P7_BanReason");
+
+            public static string PropertyType_Name
+            {
+                get
+                {
+                    return "اسم نوع الملك _" + letters[int.Parse(Test_Index_PropertyType.Value)];
+                }
+                set {; }
+            }
+            public static string PropertyType_Desc
+            {
+                get
+                {
+                    return "وصف نوع الملك _" + Test_Index_PropertyType.Value;
+                }
+                set {; }
+            }
+            public static string Property_Name
+            {
+                get
+                {
+                    return "اسم الملك _" + Test_Index_Property.Value;
+                }
+                set {; }
+            }
+            public static string BanReason_Name
+            {
+                get
+                {
+                    return "سبب الحظر _" + letters[int.Parse(Test_Index_BanReason.Value)];
+                }
+                set {; }
+            }
+            public static string SuspensionReason_Name
+            {
+                get
+                {
+                    return "سبب التعليق _" + letters[int.Parse(Test_Index_SuspensionReason.Value)];
+                }
+                set {; }
+            }
 
         }
+        public class Contracts
+        {
+            public static string Name = "شقة";
+
+            public static string Describtion = "شقة ايجار";
+
+
+            /// /////////////////// # Test_Index_Contracts_P1_ContractType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_ContractType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Contracts_P1_ContractType");
+
+            public static string PropertyType_Name
+            {
+                get
+                {
+                    return "اسم نوع العقد _" + Test_Index_ContractType.Value;
+                }
+                set {; }
+            }
+            public static string PropertyType_Desc
+            {
+                get
+                {
+                    return "وصف نوع العقد _" + Test_Index_ContractType.Value;
+                }
+                set {; }
+            }
+
+
+        }
+
+
+
         public class purchase1
         {
             public static string supplierName = "ahmed fahmy";
@@ -934,7 +1023,51 @@ namespace ERP_Automation_Testing
             }
 
         }
+        public struct M3HR
+        {
 
+            /// /////////////////// # Test_Index_HR_M3_P1_AllowanceType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_AllowanceType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M3_P1_AllowanceType");
+
+            /// /////////////////// # Test_Index_HR_M3_P2_PeriodicalDeductionType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_PeriodicalDeductionType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_HR_M3_P2_PeriodicalDeductionType");
+
+
+            public static string AllowanceType_Name
+            {
+                get
+                {
+                    return "نوع البدل _ " + Test_Index_AllowanceType.Value;
+                }
+                set {; }
+            }  
+            public static string AllowanceType_Desc
+            {
+                get
+                {
+                    return "وصف نوع البدل _ " + Test_Index_AllowanceType.Value;
+                }
+                set {; }
+            }  
+            public static string PeriodicalDeductionType_Name
+            {
+                get
+                {
+                    return "نوع الإستقطاع _ " + Test_Index_PeriodicalDeductionType.Value;
+                }
+                set {; }
+            }  
+            public static string PeriodicalDeductionType_Desc
+            {
+                get
+                {
+                    return "وصف نوع الإستقطاع _ " + Test_Index_PeriodicalDeductionType.Value;
+                }
+                set {; }
+            }
+        }
 
         public static void Shortcut(String ShortKeys)
         {

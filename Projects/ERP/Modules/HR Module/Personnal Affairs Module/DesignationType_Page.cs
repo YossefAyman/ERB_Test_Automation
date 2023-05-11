@@ -42,20 +42,24 @@ namespace ERP_Automation_Testing
             Driver.FindElement(Add_Button).Click();
             Driver.FindElement(DesignationType_Name).SendKeys(Data.M1HR.DesignationType_Name);
             Driver.FindElement(Save_Button).Click();
+            time.Sleep(2000);
+
         }
 
         public static void Edit_DesignationType(string DesignationName)
         {
-            Search(Data.M1HR.DesignationType_Name);
+            Common.Search(Data.M1HR.DesignationType_Name);
             Driver.FindElement(Edit_Button).Click();
             Driver.FindElement(DesignationType_Name).Clear();
             Driver.FindElement(DesignationType_Name).SendKeys(DesignationName);
             Driver.FindElement(Save_Button).Click();
+            time.Sleep(2000);
+
         }
 
         public static void Delete_DesignationType(string DesignationType_Name)
         {
-            Search(DesignationType_Name);
+            Common.Search(Data.M1HR.DesignationType_Name);
             Driver.FindElement(FirstItemDelete_Button).Click();
             time.Sleep(1000);
             Driver.FindElement(DeleteConfirm_Button).Click();
@@ -64,23 +68,25 @@ namespace ERP_Automation_Testing
 
         public static string Search(string item)
         {
-            Driver.FindElement(Search_TextBox).Clear();
-            Driver.FindElement(Search_TextBox).SendKeys(item);
-            Driver.FindElement(Search_Button).Click();
-            time.Sleep(2000);
+            //if (Driver.FindElement(Search_Button).Displayed())
 
-            if (Driver.FindElement(NumOfItems_Text).Text == "1 - 1 من 1")
-            {
-                return "Exist";
-            }
-            else if (Driver.FindElement(NumOfItems_Text).GetAttribute("class") == "ng-binding ng-hide")
-            {
-                return "NotExist";
-            }
-            else
-            {
-                return "Repeated";
+                Driver.FindElement(Search_TextBox).Clear();
+                Driver.FindElement(Search_TextBox).SendKeys(item);
+                Driver.FindElement(Search_Button).Click();
+                time.Sleep(2000);
+
+                if (Driver.FindElement(NumOfItems_Text).Text == "1 - 1 من 1")
+                {
+                    return "Exist";
+                }
+                else if (Driver.FindElement(NumOfItems_Text).GetAttribute("class") == "ng-binding ng-hide")
+                {
+                    return "NotExist";
+                }
+                else
+                {
+                    return "Repeated";
+                }
             }
         }
     }
-}

@@ -29,6 +29,7 @@ namespace ERP_Automation_Testing
                 Common.OpenDriver();
             }
             Common.Driver.Manage().Window.Maximize();
+            Common.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             Login_Page.LoginAsAdmin();
             Permissions_Page.Goto();
         }
@@ -57,7 +58,7 @@ namespace ERP_Automation_Testing
             Assert.IsTrue(Permissions_Page.Search(Data.M1HR.employeeName) != "Exist", "T3_Delete_Permission_Test Failed");
 
 
-        }
+        }  
 
         [OneTimeTearDown]
         public static void Test_End()

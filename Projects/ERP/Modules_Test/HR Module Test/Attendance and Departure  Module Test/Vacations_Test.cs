@@ -29,6 +29,7 @@ namespace ERP_Automation_Testing
                 Common.OpenDriver();
             }
             Common.Driver.Manage().Window.Maximize();
+            Common.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             Login_Page.LoginAsAdmin();
             Vacations_Page.Goto();
         }
@@ -40,8 +41,8 @@ namespace ERP_Automation_Testing
             Assert.IsTrue(Vacations_Page.Search(Data.M1HR.employeeName) == "Exist", "T1_Add_Vacation_Test Failed");
         }
         
-        [Test, Order(2)]
-        public static void T2_Approve_Vacation()
+        [Test, Order(3)]
+        public static void T3_Approve_Vacation()
         {
             Vacations_Page.Add_Vacation();
             Vacations_Page.Approve_Vacation(Data.M1HR.employeeName);
@@ -55,13 +56,11 @@ namespace ERP_Automation_Testing
         }*/
 
 
-        [Test, Order(4)]
-        public static void T4_Delete_Vacation()
+        [Test, Order(2)]
+        public static void T2_Delete_Vacation()
         {
             Vacations_Page.Delete_Vacation(Data.M1HR.employeeName);
             Assert.IsTrue(Vacations_Page.Search(Data.M1HR.employeeName) != "Exist", "T3_Delete_Permission_Test Failed");
-
-
         }
 
         [OneTimeTearDown]

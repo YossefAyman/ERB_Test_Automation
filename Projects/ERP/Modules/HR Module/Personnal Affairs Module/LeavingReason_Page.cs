@@ -43,6 +43,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(Add_Button).Click();
             Driver.FindElement(LeavingReason_Name).SendKeys(Data.M1HR.LeavingReason_Name);
             Driver.FindElement(Save_Button).Click();
+            time.Sleep(2000);
         }
 
         public static void Edit_LeavingReason(string LeavingReason)
@@ -52,6 +53,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(LeavingReason_Name).Clear();
             Driver.FindElement(LeavingReason_Name).SendKeys(LeavingReason);
             Driver.FindElement(Save_Button).Click();
+            time.Sleep(2000);
         }
 
         public static void Delete_LeavingReason(string LeavingReason)

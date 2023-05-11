@@ -57,7 +57,6 @@ namespace ERP_Automation_Testing
             Driver.FindElements(Dates)[4].Clear();
             Driver.FindElements(Dates)[4].SendKeys(Data.M2HR.VacationEndDate);
             Driver.FindElement(Model_MissionPeriod).SendKeys(Data.M2HR.PermissionPeriod);
-
             Driver.FindElement(Save_Button).Click();
             time.Sleep(2000);
         }

@@ -44,6 +44,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(Add_Button).Click();
             Driver.FindElement(EmploymentType_Name).SendKeys(Data.M1HR.N2_Employment_Type_Name);
             Driver.FindElement(Save_Button).Click();
+            time.Sleep(2000);
         }
 
         public static void Edit_EmploymentType(string EmploymentType)

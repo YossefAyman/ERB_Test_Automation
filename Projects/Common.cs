@@ -20,9 +20,9 @@ namespace Automation_Testing
 {
     public class Common : CommonSelectors
     {
+
         public static IWebDriver Driver = new ChromeDriver(@"C:\");
-        public static Actions Actions = new Actions(Driver);
-        
+        public static Actions Actions = new Actions(Driver);        
 
         public static bool testingOnWebsite = false;
 

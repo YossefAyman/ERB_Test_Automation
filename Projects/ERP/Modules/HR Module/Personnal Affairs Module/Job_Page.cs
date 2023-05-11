@@ -61,7 +61,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(QualificationDesc).SendKeys(Data.M1HR.Skills_Dec + Keys.Enter);
 
             Driver.FindElement(Save_Button).Click();
-            time.Sleep(3000);
+            time.Sleep(2000);
         }
 
         public static void Add_Job_With_Added_OrganizationUnit_And_Skill()
@@ -79,7 +79,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(QualificationDesc).SendKeys(Data.M1HR.Skills_Dec + Keys.Enter);
 
             Driver.FindElement(Save_Button).Click();
-            time.Sleep(3000);
+            time.Sleep(2000);
         }
 
 
@@ -101,7 +101,7 @@ namespace ERP_Automation_Testing
                Driver.FindElement(Job_Description).Clear();
                Driver.FindElement(Job_Description).SendKeys(Job_Desc);
                Driver.FindElement(Save_Button).Click();
-               time.Sleep(3000);
+               time.Sleep(2000);
            }
 
         public static void Delete_Job(string Job)

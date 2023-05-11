@@ -29,6 +29,7 @@ namespace ERP_Automation_Testing
                 Common.OpenDriver();
             }
             Common.Driver.Manage().Window.Maximize();
+            Common.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             Login_Page.LoginAsAdmin();
             Qualifications_Page.Goto();
         }
@@ -55,8 +56,6 @@ namespace ERP_Automation_Testing
         {
             Qualifications_Page.Delete_Qualification(Data.M1HR.Qualification_Name);
             Assert.IsTrue(Skills_Page.Search(Data.M1HR.Qualification_Name) != "Exist", "T3_Delete_Qualification_Test Failed");
-
-
         }
 
 

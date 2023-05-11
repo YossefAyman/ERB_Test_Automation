@@ -50,7 +50,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(End_Date).SendKeys(Data.RandomDate());
 
             Driver.FindElement(Save_Button).Click();
-            time.Sleep(3000);
+            time.Sleep(2000);
         }
 
 
@@ -65,6 +65,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(End_Date).Clear();
             Driver.FindElement(End_Date).SendKeys(Data.RandomDate());
             Driver.FindElement(Save_Button).Click();
+            time.Sleep(2000);
         }
 
         public static void Delete_WorkingYear(string WorkingYear)

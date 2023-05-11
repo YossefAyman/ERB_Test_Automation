@@ -100,7 +100,6 @@ namespace ERP_Automation_Testing
             Driver.FindElement(Tuesday_CheckBox).Click();
             Driver.FindElement(Wednesday_CheckBox).Click();
             Driver.FindElement(Thursday_CheckBox).Click();
-
             Driver.FindElement(Save_Button).Click();
             time.Sleep(2000);
         }

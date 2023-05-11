@@ -20,7 +20,7 @@ namespace Automation_Testing
     public class CommonSelectors
     {       
         protected static By Add_Button =                                    By.ClassName("btnAddItem");
-        protected static By Save_Button =                                   By.ClassName("btn-primary");
+        protected static By Save_Button =                                   By.ClassName("  ");
         protected static By Search_TextBox =                                By.XPath("//*[@placeholder=\"بحث\"]");
         protected static By Search_Button =                                 By.ClassName("btn-light");
         protected static By FirstItemEdit_Button =                          By.ClassName("btnEditItem");

@@ -45,7 +45,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(QualificationName).SendKeys(Data.M1HR.Qualification_Name);
             Driver.FindElement(QualificationDescription).SendKeys(Data.M1HR.Qualification_Dec);
             Driver.FindElement(Save_Button).Click();
-            time.Sleep(3000);
+            time.Sleep(2000);
         }
 
         public static void Edit_Qualification(string Qualification , string QualificationDesc)
@@ -57,7 +57,7 @@ namespace ERP_Automation_Testing
             Driver.FindElement(QualificationDescription).Clear();
             Driver.FindElement(QualificationDescription).SendKeys(QualificationDesc);
             Driver.FindElement(Save_Button).Click();
-            time.Sleep(3000);
+            time.Sleep(2000);
         }
 
         public static void Delete_Qualification(string Qualification)

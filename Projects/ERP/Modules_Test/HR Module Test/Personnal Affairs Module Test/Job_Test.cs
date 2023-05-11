@@ -29,6 +29,7 @@ namespace ERP_Automation_Testing
                 Common.OpenDriver();
             }
             Common.Driver.Manage().Window.Maximize();
+            Common.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             Login_Page.LoginAsAdmin();
             Job_Page.GotoJobPage();
         }
@@ -59,7 +60,7 @@ namespace ERP_Automation_Testing
 
         }
         [Test , Order(4)]
-        public static void T1_Add_Job_With_Adding_Skill()
+        public static void T4_Add_Job_With_Adding_Skill()
         {
             TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.M1HR.Test_Index_Skills);
             TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.M1HR.Test_Index_Job);

@@ -28,6 +28,7 @@ namespace ERP_Automation_Testing
                 Common.OpenDriver();
             }
             Common.Driver.Manage().Window.Maximize();
+            Common.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             Login_Page.LoginAsAdmin();
             DesignationType_Page.Goto();
         }
@@ -68,7 +69,7 @@ namespace ERP_Automation_Testing
             {
                 DesignationType_Page.Edit_DesignationType(Data.M1HR.DesignationType_Name + "_Edited");
 
-                if (Data.check(DesignationType_Page.Search(Data.M1HR.DesignationType_Name + "_Edited") == "Exist", "T2_Update_DesignationType_Test Failed"))
+                if (Data.check(DesignationType_Page.Search(Data.M1HR.DesignationType_Name) == "Exist", "T2_Update_DesignationType_Test Failed"))
                 {
                     DesignationType_Page.Delete_DesignationType(Data.M1HR.DesignationType_Name);
 
