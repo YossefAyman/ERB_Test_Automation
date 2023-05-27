@@ -18,6 +18,7 @@ using System.Xml.Linq;
 
 namespace ERP_Automation_Testing
 {
+
     public static class Data
     {
         //public static IWebDriver Driver = new ChromeDriver(@"F:\WebSites\Test\ERPAutomation\TestNeeds\");
@@ -294,7 +295,7 @@ namespace ERP_Automation_Testing
         public class Estates
         {
             public static string PropertyTypeName = "عمارة";
-            public static string Name = "شقة العجمي";
+            public static string Name = "العجمي";
             public static string owner = "احمد حسن";
             public static string propertyspace = "200";
             public static string operationstartDate = "12-1-2022";
@@ -369,20 +370,33 @@ namespace ERP_Automation_Testing
         }
         public class Contracts
         {
-            public static string Name = "شقة";
+            public static string Name =             "شقة";
+            public static string Describtion =      "شقة ايجار";
+            public static DateTime TodayDate =      DateTime.Now;
+            public static string Contract_Date =    TodayDate.AddYears(-1).ToString("dd-MM-yyyy");
+            public static string Ending_Date =      TodayDate.AddYears(1).ToString("dd-MM-yyyy");
+            public static string Customer =         "عميل_111";
+            public static string Collector =        "Mohassel";
+            public static string NumberOfpremium =  "12";
+            public static string AccountName =      "الاصول2";
 
-            public static string Describtion = "شقة ايجار";
 
 
-            /// /////////////////// # Test_Index_Contracts_P1_ContractType # /////////////////////////////////////////////
 
-            public static TestAutomationDbModels.TestConfig Test_Index_ContractType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Contracts_P1_ContractType");
+
+            /// /////////////////// # Test_Index_Contracts_P4_ContractType # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_ContractType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Contracts_P4_ContractType");
+
+            /// /////////////////// # Test_Index_Contracts_P5_FinancialAddition # /////////////////////////////////////////////
+
+            public static TestAutomationDbModels.TestConfig Test_Index_FinancialAddition = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Contracts_P5_FinancialAddition");
 
             public static string PropertyType_Name
             {
                 get
                 {
-                    return "اسم نوع العقد _" + Test_Index_ContractType.Value;
+                    return "اسم نوع العقد _" + letters[int.Parse(Test_Index_ContractType.Value)];
                 }
                 set {; }
             }
@@ -394,13 +408,22 @@ namespace ERP_Automation_Testing
                 }
                 set {; }
             }
+            
+            public static string FinancialAddition_Name
+            {
+                get
+                {
+                    return "الاضافة المالية _" + Test_Index_FinancialAddition.Value;
+                }
+                set {; }
+            }
 
 
         }
 
 
 
-        public class purchase1
+        public class Purchase
         {
             public static string supplierName = "ahmed fahmy";
             public static string storeName = "1";
@@ -467,17 +490,15 @@ namespace ERP_Automation_Testing
             public string Quantity = "10";
         }
 
-        // فاتورة مشتريات
-        public class PurchasesBill
+        public class Sales
         {
             static Data.BankAccount BankAccount = new Data.BankAccount();
-            public string Supplier = Data.Supplier.Name;
-            public string Store = Data.Store;
+            public static string Supplier = Data.Supplier.Name;
             public string Date = Data.Date;
             public string ItemPurchasePrice = "700";
             public string ItemType = Data.ItemType;
             public string ItemName = "Item_" + TEST_INDEX;
-            public string PayMethod = "نقدا"; // نقدا - تحويل بنكى - شيك - بطاقات دفع
+            public static string PayMethod = "نقدا"; // نقدا - تحويل بنكى - شيك - بطاقات دفع
             ///////////// cash ////////////////////
             public string Treasury = "النقدية بالصندوق";
             ////////////// bank transfer /////////////////
@@ -488,10 +509,15 @@ namespace ERP_Automation_Testing
             //////////////// payment card /////////////////////
             public string CardPaymentReceiptNumber = "1234";
             //////////////////////////////////////////////
-            public string Quantity = "100";
-            public string Price = "500";
+            public static string Quantity = "100";
+            public static string Price = "500";
             public string Discount = "60";
             public string Tax = Data.Tax;
+            public static string District = "الحي العاشر";
+            public static string Store = "مخزن_101";
+            public static string Clinet_Name = "تيست عميل";
+            public static string Item_Name = "اسم العنصر_101";
+
         }
 
         public class PurchaseReturnBill
@@ -505,7 +531,7 @@ namespace ERP_Automation_Testing
 
 
 
-        public struct assets
+            public struct assets
         {
             /// /////////////////// # Test_Index_Add_Asset # /////////////////////////////////////////////
 
@@ -518,10 +544,11 @@ namespace ERP_Automation_Testing
             public static string parentclass = "جبنة";
             public static string ageofassets = Test_Index_Add_Asset.Value;
             public static string OriginName = "OriginName_" + Test_Index_Add_Asset.Value;
+            
             public static string origincode = Test_Index_Add_Asset.Value;
             public static string Thepriceofassets = Test_Index_Add_Asset.Value;*/
             public static string Date = DateValue;
-
+            public static string originName2 = "OriginName_";
 
             public static string Brand
             {
@@ -601,7 +628,7 @@ namespace ERP_Automation_Testing
             public string ItemName = "Item_" + TEST_INDEX;
             public string PayMethod = "نقدا"; //## نقدا - تحويل بنكى - شيك - بطاقات دفع
             //################### cash ###################
-            public string Treasury = "النقدية بالصندوق";
+            public  static string Treasury = "خزن_101";
             //################### bank transfer ###################
             public string BankAccountCode = BankAccount.BankAccountCode; //Data.BankAccount.BankAccountCode;
             public string BankTransferNumber = "1234";
@@ -1133,6 +1160,17 @@ namespace ERP_Automation_Testing
 
 
 
+        }
+
+    }
+
+    public class DynamicData
+    {
+        private string name;
+        public string Name   // property
+        {
+            get { return name; }   // get method
+            set { name = value; }  // set method
         }
 
     }

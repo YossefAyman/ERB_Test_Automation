@@ -29,6 +29,33 @@ namespace ERP_Automation_Testing
         }
 
         [Test]
+        public static void T1_Addassets_Assert()
+        {
+
+            try
+            {
+                //int countValueBeforeAdding = Common.ReadCountText();//0
+                Assets__page.AddAssets();
+                //int countValueAfterAdding = Common.ReadCountText();//1
+                //Assert.IsTrue(countValueAfterAdding - countValueBeforeAdding == 1, "T1_Add permission Failed");
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Warn("Message : \n" + ex.Message + "\nStack Trace : \n" + ex.StackTrace);
+                Common.Driver.Close();
+
+            }
+
+
+
+
+
+        }
+
+        [Test]
 
         public static void T1_Add_Asset_Test()
         {

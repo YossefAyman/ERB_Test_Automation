@@ -19,9 +19,17 @@ using Microsoft.Ajax.Utilities;
 namespace ERP_Automation_Testing
 {
     [TestFixture]
-    public class Contracts_ContractType
+    public class Contracts_P4_ContractType
 
     {
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         [OneTimeSetUp]
         public static void Test_Init()
         {
@@ -39,27 +47,30 @@ namespace ERP_Automation_Testing
         public static void T1_Add_ContractType()
         {
             //TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.Contracts.Test_Index_ContractType);
-            //Data.Contracts.Test_Index_ContractType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Contracts_P1_ContractType");
-            ContractType_Page.Add();
-            //Assert.IsTrue(AnnualHolidays_Page.Search(Data.M2HR.AnnualHoliday_Name) == "Exist", "T1_Add_AnnualHoliday_Test Failed");
+            //Data.Contracts.Test_Index_ContractType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Contracts_P4_ContractType");
+            DynamicData PropertyType_insatnce = new DynamicData();            
+            PropertyType_insatnce.Name = RandomString(3);
+            ContractType_Page.Add_ContractType(PropertyType_insatnce);
+            //sAssert.IsTrue(PropertyType_Page.Search(Data.Contracts.PropertyType_Name) == "Exist", "T1_Add_ContractType_Test Failed");
         }
 
-        //[Test, Order(2)]
-        //public static void T2_Update_AnnualHoliday()
-        //{
-        //    AnnualHolidays_Page.Edit_AnnualHoliday(Data.M2HR.AnnualHoliday_Name + "_Edited", Data.M2HR.AnnualHoliday_Desc + "_Edited");
-        //    Assert.IsTrue(AnnualHolidays_Page.Search(Data.M2HR.AnnualHoliday_Name + "_Edited") == "Exist", "T2_Update_AnnualHoliday_Test Failed");
-        //}
+        [Test, Order(2)]
+        public static void T2_Update_ContractType()
+        {
+            ContractType_Page.Edit_ContractType(Data.Contracts.PropertyType_Name, Data.Contracts.PropertyType_Name + "_Edited");
+            Assert.IsTrue(PropertyType_Page.Search(Data.Contracts.PropertyType_Name + "_Edited") == "Exist", "T2_Update_ContractType_Test Failed");
+        }
 
 
-        //[Test, Order(3)]
-        //public static void T3_Delete_AnnualHoliday()
-        //{
-        //    AnnualHolidays_Page.Delete_AnnualHoliday(Data.M2HR.AnnualHoliday_Name);
-        //    Assert.IsTrue(AnnualHolidays_Page.Search(Data.M2HR.AnnualHoliday_Name) != "Exist", "T3_Delete_AnnualHoliday_Test Failed");
+        [Test, Order(3)]
+        public static void T3_Delete_ContractType()
+        {
+            ContractType_Page.Delete_ContractType(Data.Contracts.PropertyType_Name);
+            time.Sleep(1000);
+            Assert.IsTrue(PropertyType_Page.Search(Data.Contracts.PropertyType_Name) != "Exist", "T3_Delete_ContractType_Test Failed");
 
 
-        //}
+        }
 
         [OneTimeTearDown]
         public static void Test_End()

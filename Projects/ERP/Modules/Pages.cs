@@ -19,7 +19,7 @@ namespace ERP_Automation_Testing
     {
         private enum MENU_ITEMS
         {
-          assets = 3 ,  PROFILES = 4, GENERAL_SITTINGS = 6, FINANCIALS = 8, INVENTORIES = 9, SALES = 10, PURCHASES = 11, ESTATE = 15 , Contract=16, PERSONAL_AFFAIRS = 20 , ATTENDANCE_AND_DEPARTURE = 21 , SALARIES = 22
+          assets = 3 ,  PROFILES = 4, GENERAL_SITTINGS = 6, FINANCIALS = 8, INVENTORIES = 9, SALES = 10, PURCHASES = 12, ESTATE = 15 , Contract=16, PERSONAL_AFFAIRS = 20 , ATTENDANCE_AND_DEPARTURE = 21 , SALARIES = 22
         }
 
         private enum PROFILES_ITEMS
@@ -45,20 +45,20 @@ namespace ERP_Automation_Testing
         }
         private enum PURCHASES_ITEMS
         {
-            PURCHASES_BILL = 1, PURCHASES_RETURNS_BILL = 2
+            PURCHASES_BILL = 3, PURCHASES_RETURNS_BILL = 1 
         }
         private enum SALES_ITEMS
-        {
-            SALES_BILL = 2, SALES_BILL_RETURNS = 1
+        { 
+            SALES_BILL = 2, SALES_BILL_RETURNS = 1 , DELIVERY_PRICE = 3  , SALES_ORDER = 4
         }
         private enum Estate_ITEMS
         {
-            PropertyType = 1, Property = 2 , SuspensionReason = 3 , BAN_REASON = 7,  suspension_Reason = 4, buildings = 5, Apartements = 6, villa = 7, property_Reports = 8
+            PropertyType = 1, Property = 2 , SuspensionReason = 3 , BAN_REASON = 7,  suspension_Reason = 4, buildings = 5, Apartements = 6, villa = 7, Property_Reports = 8
 
         }
         private enum assets_items
         {
-            assets = 3
+            assets = 4
         }
          private enum PersonnalAffairs_ITEMS
         {
@@ -81,11 +81,9 @@ namespace ERP_Automation_Testing
 
         private enum Contract_ITEMS
         {
-            ContractType_Page = 4
-
-
+            ContractType_Page = 4, Financial_Addition = 5 , RentContract = 7 
         }
-
+        
 
 
 
@@ -131,10 +129,16 @@ namespace ERP_Automation_Testing
 
 
         static By Assets_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.assets + ") > a");
-        static By Assets_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.assets + ") > ul > li:nth-child(" + (int)assets_items.assets + ") > a");
-
-
+        static By Assets_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(3) > ul > li:nth-child(4) > a > span");
+       
+        
+        
+        
         static By SalesBill_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.SALES + ") > ul > li:nth-child(" + (int)SALES_ITEMS.SALES_BILL + ") > a");
+        static By DeliveryPrice_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.SALES + ") > ul > li:nth-child(" + (int)SALES_ITEMS.DELIVERY_PRICE + ") > a");
+        static By SalesOrder_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.SALES + ") > ul > li:nth-child(" + (int)SALES_ITEMS.SALES_ORDER + ") > a");
+        static By SalesBillReturn_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.SALES + ") > ul > li:nth-child(" + (int)SALES_ITEMS.SALES_BILL_RETURNS + ") > a");
+       
         static By Building_page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.SALES + ") > ul > li:nth-child(" + (int)Estate_ITEMS.buildings + ") > a");
 
 
@@ -143,6 +147,7 @@ namespace ERP_Automation_Testing
         static By Property_page =                        By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ESTATE + ") > ul > li:nth-child(" + (int)Estate_ITEMS.Property + ") > a");
         static By PropertyType_Page =                    By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ESTATE + ") > ul > li:nth-child(" + (int)Estate_ITEMS.PropertyType + ") > a");
         static By SuspensionReason_Page =                By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ESTATE + ") > ul > li:nth-child(" + (int)Estate_ITEMS.SuspensionReason + ") > a");
+        static By Property_Reports_Page =                By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.ESTATE + ") > ul > li:nth-child(" + (int)Estate_ITEMS.Property_Reports + ") > a");
 
 
         static By PersonnalAffairs_Module =             By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.PERSONAL_AFFAIRS + ") > a");
@@ -180,8 +185,10 @@ namespace ERP_Automation_Testing
         static By PeriodicalDeductionType_Page =        By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.SALARIES + ") > ul > li:nth-child(" + (int)Salaries_ITEMS.PeriodicalDeductionType + ") > a");
 
 
-        static By Contract_Module = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.Contract + ") > a");
-        static By ContractType_Page = By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.Contract + ") > ul > li:nth-child(" + (int)Contract_ITEMS.ContractType_Page + ") > a");
+        static By Contract_Module =                     By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.Contract + ") > a");
+        static By ContractType_Page =                   By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.Contract + ") > ul > li:nth-child(" + (int)Contract_ITEMS.ContractType_Page + ") > a");
+        static By RentContract_Page =                   By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.Contract + ") > ul > li:nth-child(" + (int)Contract_ITEMS.RentContract + ") > a");
+        static By Financial_Addition_Page =             By.CssSelector("body > div.wrapper > aside > div > ul > li:nth-child(" + (int)MENU_ITEMS.Contract + ") > ul > li:nth-child(" + (int)Contract_ITEMS.Financial_Addition + ") > a");
 
 
         
@@ -308,6 +315,19 @@ namespace ERP_Automation_Testing
         public static void SalessBillPage()
         {
             Open(Sales_Module, SalesBill_Page);
+        } 
+        public static void DeliveryPricePage()
+        {
+            Open(Sales_Module, DeliveryPrice_Page);
+        }
+        public static void SalesOrderPage()
+        {
+            Open(Sales_Module, SalesOrder_Page);
+        }
+        //
+        public static void SalesBillReturnPage()
+        {
+            Open(Sales_Module, SalesBillReturn_Page);
         }
         // الأملاك
         
@@ -498,10 +518,22 @@ namespace ERP_Automation_Testing
         {
             Open(Estate_Module, BanResaon_Page);
         }
+        public static void PropertyReportsPage()
+        {
+            Open(Estate_Module, Property_Reports_Page);
+        }
         /// /////////////////// # Contract_MODULE # /////////////////////////////////////////////
         public static void ContractTypePage()
         {
             Open(Contract_Module, ContractType_Page);
+        }
+        public static void RentContractPage()
+        {
+            Open(Contract_Module, RentContract_Page);
+        }
+        public static void Financial_AdditionPage()
+        {
+            Open(Contract_Module, Financial_Addition_Page);
         }
 
     }

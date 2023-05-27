@@ -1,26 +1,44 @@
-﻿using Automation_Testing;
-using ERP_Automation_Testing;
+﻿using System;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+using time = System.Threading.Thread;
+
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
+using Automation_Testing;
+using Aspose.Pdf.Operators;
+using ERP_Automation_Test.Projects.ERP.Modules.Profiles_Module;
+using Newtonsoft.Json.Linq;
+using Microsoft.Ajax.Utilities;
+using System.Drawing;
 
 namespace ERP_Automation_Testing
 {
 
 
     [TestFixture]
-    internal class M1_Profiles_N10_purchaseBill
+    internal class Purchase_P3_PurchaseBill
     {
-        [SetUp]
+        [OneTimeSetUp]
         public static void Test_Init()
         {
-            Automation_Testing.Common.Driver.Manage().Window.Maximize();
+            if (Common.Driver == null)
+            {
+                Common.OpenDriver();
+            }
+            Common.Driver.Manage().Window.Maximize();
+            Common.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             Login_Page.LoginAsAdmin();
             PurchasesBill_Page.Goto();
+
         }
 
-        [Test]
+        [Test, Order(1)]
         public void T1_Add_purchaseBill()
         {
 
@@ -31,21 +49,46 @@ namespace ERP_Automation_Testing
                 int countValueAfterAdding = Common.ReadCountText();
                 Assert.IsTrue(countValueAfterAdding - countValueBeforeAdding == 1, "T1_Add purchasebillFailed");
             }
-            catch (Exception ex)
+                catch (Exception ex)
             {
                 Assert.Warn("Message : \n" + ex.Message + "\nStack Trace : \n" + ex.StackTrace);
-                // Common.Driver.Close();
 
             }
         }
 
-        [TearDown]
-        public static void Test_End()
+        
+        [Test, Order(2)]
+        public void T2_Add_purchaseBill_Then_ReturnIt()
         {
-            Common.Driver.Close();
 
+            try
+            {
+                List<string> List = new List<string>(PurchasesBill_Page.Add_purchaseBill());
+                PurchaseReturnBill_Page.Goto();
+                int countValueBeforeAdding = Common.ReadCountText();
+                PurchaseReturnBill_Page.Add_PurchasesReturnsBill(List[1]);
+                int countValueAfterAdding = Common.ReadCountText();
+                Assert.IsTrue(countValueAfterAdding - countValueBeforeAdding == 1, "T2_Add_purchaseBill_Then_ReturnIt Failed");
+            }
+                catch (Exception ex)
+            {
+                Assert.Warn("Message : \n" + ex.Message + "\nStack Trace : \n" + ex.StackTrace);
+
+            }
+
+           
         }
 
+
+
+
+        [OneTimeTearDown]
+        public static void Test_End()
+        {
+            Common.Driver.Dispose();
+            Common.Driver = null;
+
+        }
 
 
 

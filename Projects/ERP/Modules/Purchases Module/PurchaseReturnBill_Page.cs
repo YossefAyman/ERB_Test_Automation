@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 //using System.Windows.Forms;
-
+using Automation_Testing;
 
 namespace ERP_Automation_Testing
 {
@@ -21,76 +21,34 @@ namespace ERP_Automation_Testing
 
         // Selectors
 
-        //static By Add_Button = By.ClassName("btnAddItem");
-        static By Add_Button = By.ClassName("btn-success");
-        static By PurchaseBillNumber_SelectToggle = By.CssSelector("#FormManager > div:nth-child(1) > div:nth-child(2) > div > div > a > span.select2-arrow.ui-select-toggle");
-        static By PurchaseBillNumber_TextBox = By.CssSelector("#FormManager > div:nth-child(1) > div:nth-child(2) > div > div > div > div > input");
-        static By StoreName_SelectToggle = By.CssSelector("#FormManager > div:nth-child(1) > div:nth-child(4) > div > div > a > span.select2-arrow.ui-select-toggle");
-        static By StoreName_TextBox = By.CssSelector("#FormManager > div:nth-child(1) > div:nth-child(4) > div > div > div > div > input");
-        static By Date_TextBox = By.XPath("//*[@placeholder=\"DD-MM-YYYY\"]");
-        static By Quantity_TextBox = By.CssSelector("#PurchasesInvoiceDetails_QuantityReturns");
-        static By Discount_TextBox = By.CssSelector("#PurchasesInvoiceDetails_Discount");
-        static By AddAttachement_Button = By.CssSelector("#AttachmentFormManager > div:nth-child(3) > div:nth-child(1) > div > div.drop-box.ng-pristine.ng-untouched.ng-valid.ng-empty > i");
-        static By Save_Button = By.CssSelector("#mainModal > div > div > div.modal-body > div.modal-footer > input");
-        static By NumOfItems_Text = By.ClassName("ng-binding");
-        static By Search_TextBox = By.XPath("//*[@placeholder=\"بحث\"]");
-        static By Search_Button = By.ClassName("btn-light"); 
+        static By Add_Button =                                       By.ClassName("btn-success");
+        static By PurchaseBillNumber_SelectToggle =                  By.CssSelector("#FormManager > div:nth-child(1) > div:nth-child(2) > div > div > a > span.select2-arrow.ui-select-toggle");
+        static By PurchaseBillNumber_TextBox =                       By.CssSelector("#FormManager > div:nth-child(1) > div:nth-child(2) > div > div > div > div > input");
+        static By Quantity =                                         By.Id("EmptyPurchasesInvoiceReturnsDetails_Quantity");
+        static By QuantityReturns =                                  By.Id("EmptyPurchasesInvoiceReturnsDetails_QuantityReturns");
+        static By Save_Button =                                      By.CssSelector("#mainModal > div > div > div.modal-body > div.modal-footer > input");
+        static By Search_Button =                                    By.XPath("/html/body/div[2]/main/div/div/div[2]/div/div[2]/section/div/div/div[2]/div/div/div[2]/div[1]/div/span/button");
+  
+
+
 
         public static void Goto()
         {
             Pages.PurchaseReturnBill_Page();
             time.Sleep(2000);
         }
-        public static void Add_PurchasesReturnsBill(Data.PurchaseReturnBill PurchaseReturnBill) 
+        public static void Add_PurchasesReturnsBill(string PurchaseSerialForReturnBill) 
 	    {      
             Driver.FindElement(Add_Button).Click();
-            time.Sleep(3000);
             Driver.FindElement(PurchaseBillNumber_SelectToggle).Click();
-            Driver.FindElement(PurchaseBillNumber_TextBox).SendKeys(Keys.Enter);
-            //Driver.FindElement(StoreName_SelectToggle).Click();
-            //Driver.FindElement(StoreName_TextBox).SendKeys(PurchaseReturnBill.Store + Keys.Enter);
-            Driver.FindElement(Date_TextBox).Clear();
-            Driver.FindElement(Date_TextBox).SendKeys(PurchaseReturnBill.Date);
-            Driver.FindElement(Quantity_TextBox).Clear();
-            Driver.FindElement(Quantity_TextBox).SendKeys(PurchaseReturnBill.Quantity);
-		
-            Driver.FindElement(Discount_TextBox).Clear();
-            Driver.FindElement(Discount_TextBox).SendKeys(PurchaseReturnBill.Discount);
-		
-            Driver.FindElement(AddAttachement_Button).Click();
-            time.Sleep(2000);
-            Data.Add_Attachment();
-            time.Sleep(3000);
+            Driver.FindElement(PurchaseBillNumber_TextBox).SendKeys(PurchaseSerialForReturnBill + Keys.Enter);
+            string QuantityCount_string = Driver.FindElement(Quantity).GetAttribute("value");
+            Driver.FindElement(QuantityReturns).Clear();
+            Driver.FindElement(QuantityReturns).SendKeys((int.Parse(QuantityCount_string) / 2).ToString());
+            Common.ScrollDown(12);
             Driver.FindElement(Save_Button).Click();
-            time.Sleep(3000);
+            new WebDriverWait(Driver, TimeSpan.FromSeconds(20)).Until(Driver => Driver.FindElement(Search_Button).Displayed);
         }
 
-        public static string Number_Of_Items()
-        {
-            return Driver.FindElement(NumOfItems_Text).Text;
-        }
-
-        public static string Search(string item)
-        {
-            Driver.FindElement(Search_TextBox).Clear();
-            Driver.FindElement(Search_TextBox).SendKeys(item);
-            Driver.FindElement(Search_Button).Click();
-            time.Sleep(1000);
-
-            if (Driver.FindElement(NumOfItems_Text).Text == "1 - 1 من 1")
-            {
-                return "Exist";
-            }
-            else if (Driver.FindElement(NumOfItems_Text).GetAttribute("class") == "ng-binding ng-hide")
-            {
-                return "NotExist";
-            }
-            else
-            {
-                return "Repeated";
-            }
-
-           
-        }
     }
 }

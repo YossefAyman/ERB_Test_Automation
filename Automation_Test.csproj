@@ -226,14 +226,18 @@
     <Compile Include="Projects\ERP\Models\TestCase.cs" />
     <Compile Include="Projects\ERP\Modules\Assets Module\Assets_ page.cs" />
     <Compile Include="Projects\ERP\Modules\Contracts\ContractType_Page.cs" />
-    <Compile Include="Projects\ERP\Modules\Estate Moudels\PropertyType_Page.cs" />
-    <Compile Include="Projects\ERP\Modules\Estate Moudels\SuspensionReason_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\Contracts\FinancialAddition_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\Contracts\RentContract_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\Estate Module\PropertyType_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\Estate Module\Reports\LeasedProperties_Report.cs" />
+    <Compile Include="Projects\ERP\Modules\Estate Module\Reports\Owner%27sProperty_Report.cs" />
+    <Compile Include="Projects\ERP\Modules\Estate Module\SuspensionReason_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Financials Module\Account_Reports_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Financials Module\Daily_Restrictions.cs" />
     <Compile Include="Projects\ERP\Modules\Data.cs" />
-    <Compile Include="Projects\ERP\Modules\Estate Moudels\BanReason_Page.cs" />
-    <Compile Include="Projects\ERP\Modules\Estate Moudels\Buliding_page.cs" />
-    <Compile Include="Projects\ERP\Modules\Estate Moudels\Property_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\Estate Module\BanReason_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\Estate Module\Buliding_page.cs" />
+    <Compile Include="Projects\ERP\Modules\Estate Module\Property_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Financials Module\BankAccount_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Financials Module\Bank_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Financials Module\CostCenter_Page.cs" />
@@ -288,9 +292,13 @@
     <Compile Include="Projects\ERP\Modules\Profiles Module\Supplier_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Purchases Module\PurchaseReturnBill_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Purchases Module\PurchasesBill_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\Sales Module\DeliveryPrice_Page.cs" />
     <Compile Include="Projects\ERP\Modules\Sales Module\SalesBill_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\Sales Module\SalesInvoiceReturns_Page.cs" />
+    <Compile Include="Projects\ERP\Modules\Sales Module\SalesOrder_Page.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Assets Module Test\Assets_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Contracts\ContractType_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\Contracts\FinancialAddition_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Estate Module Test\BanReason_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Estate Module Test\Buliding_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Estate Module Test\PropertyType_Test.cs" />
@@ -338,7 +346,6 @@
     <Compile Include="Projects\ERP\Modules_Test\General Sittings Module Test\Country_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\General Sittings Module Test\District_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Estate Module Test\Property_Test.cs" />
-    <Compile Include="Projects\ERP\Modules_Test\Integration Module Test\Test_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Inventories Module Test\AddingPermission_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Inventories Module Test\Brand_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Inventories Module Test\InventoryCategory_Test.cs" />
@@ -350,8 +357,10 @@
     <Compile Include="Projects\ERP\Modules_Test\Profiles Module Test\Technicians_ Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Purchases Module Test\PurchaseReturnBill_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Purchases Module Test\PurchasesBill_Test.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\Sales Module Test\DeliveryPrice_Test.cs" />
     <Compile Include="Projects\ERP\Modules_Test\Sales Module Test\SalesBill_Test.cs" />
     <Compile Include="Projects\Common.cs" />
+    <Compile Include="Projects\ERP\Modules_Test\Sales Module Test\SalesOrder_Test.cs" />
     <Compile Include="Projects\LMS\Modules\Data.cs" />
     <Compile Include="Projects\LMS\Modules\Educational Institution Module\Certificate_Page.cs" />
     <Compile Include="Projects\LMS\Modules\Educational Institution Module\Correction_page.cs" />
@@ -495,8 +504,6 @@
     <Folder Include="fonts\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Projects\ERP\Modules\Accounts_module\" />
-    <Folder Include="Projects\ERP\Modules\Estates\" />
-    <Folder Include="Projects\ERP\Modules_Test\Estates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

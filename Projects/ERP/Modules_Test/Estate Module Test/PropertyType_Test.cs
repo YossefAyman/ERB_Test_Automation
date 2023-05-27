@@ -55,6 +55,7 @@ namespace ERP_Automation_Testing
         public static void T3_Delete_PropertyType()
         {
             PropertyType_Page.Delete_PropertyType(Data.Estates.PropertyType_Name);
+            time.Sleep(1000);
             Assert.IsTrue(PropertyType_Page.Search(Data.Estates.PropertyType_Name) != "Exist", "T3_Delete_PropertyType_Test Failed");
         }
 

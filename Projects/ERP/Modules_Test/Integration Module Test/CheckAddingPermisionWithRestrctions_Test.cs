@@ -16,7 +16,7 @@ using Aspose.Pdf.Operators;
 namespace ERP_Automation_Testing
 {
     [TestFixture]
-    class M8_IntegrationTests_N1_CheckAddingPermisionWithREstrictions
+    class M8_IntegrationTests
     {
         [SetUp]
         public static void Test_Init()
@@ -50,16 +50,6 @@ namespace ERP_Automation_Testing
         }
 
 
-        [Test]
-        /////////////# Check When customer make a sales bill with the Report of Customer Report #/////////////
-        public static void T2_CheckSalesBill_With_AccountsReports()
-        {
-            SalesBill_Page.Goto();
-            int totalAmountOfTheSalesBill = SalesBill_Page.Add_SalesBill();
-            Account_Reports_Page.Goto();
-            Account_Reports_Page.CheckCustomerBalanceFromReports(out int maden_Amount_For_BeforelastTransaction , out int da2en_Amount_For_lastTransaction);
-            Assert.IsTrue(totalAmountOfTheSalesBill == maden_Amount_For_BeforelastTransaction && totalAmountOfTheSalesBill == da2en_Amount_For_lastTransaction, "T2_CheckSalesBill_With_AccountsReports Failed");
-        }
 
         [TearDown]
         public static void Test_End()

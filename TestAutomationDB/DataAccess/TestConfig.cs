@@ -13,7 +13,7 @@ namespace TestAutomationDbDataAccess
     public static class TestConfig
     {
 
-        public static List<TestAutomationDbModels.TestConfig> BasicGetList(string key = null )
+        public static List<TestAutomationDbModels.TestConfig> BasicGetList(string key = null)
         {
             string connetionString = null;
             SqlConnection connection;
@@ -31,7 +31,7 @@ namespace TestAutomationDbDataAccess
             }
             connection = new SqlConnection(connetionString);
             List<TestAutomationDbModels.TestConfig> testConfigList = new List<TestAutomationDbModels.TestConfig>();
-            TestAutomationDbModels.TestConfig testConfig = new TestAutomationDbModels.TestConfig();   
+            TestAutomationDbModels.TestConfig testConfig = new TestAutomationDbModels.TestConfig();
             try
             {
                 connection.Open();
@@ -51,7 +51,7 @@ namespace TestAutomationDbDataAccess
                 dataReader.Close();
                 command.Dispose();
                 connection.Close();
-               
+
             }
             catch (Exception ex)
             {
@@ -77,13 +77,13 @@ namespace TestAutomationDbDataAccess
             SqlConnection connection;
             SqlCommand command;
             string sql = null;
-            string new_Set_Value = (int.Parse(config_test.Value) +1).ToString();
+            string new_Set_Value = (int.Parse(config_test.Value) + 1).ToString();
 
             connetionString = WebConfigurationManager.AppSettings["ConnectString"];
 
             if (config_test != null)
             {
-                sql = "update dbo.TestConfig set value = '" + new_Set_Value + "' where [key] = '" + config_test.Key + "'" ;
+                sql = "update dbo.TestConfig set value = '" + new_Set_Value + "' where [key] = '" + config_test.Key + "'";
             }
             connection = new SqlConnection(connetionString);
             try
@@ -102,7 +102,7 @@ namespace TestAutomationDbDataAccess
 
 
         }
-        public static void InsertStartDateAndEmployeeName(string startDate , string employeeSalary , string employeeName)
+        public static void InsertStartDateAndEmployeeName(string startDate, string employeeSalary, string employeeName)
         {
             string connetionString = null;
             SqlConnection connection;

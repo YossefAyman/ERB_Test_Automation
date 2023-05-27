@@ -21,8 +21,8 @@ namespace ERP_Automation_Test.Projects.ERP.Modules.Profiles_Module
 
 
 
-         static By Add_Button = By.ClassName("btnAddItem");
-        static By CustomerName_TextBox = By.Id("Profile_ProfileName");
+        static By Add_Button = By.ClassName("btnAddItem");
+        static By AssetsName_textbox= By.Id("FixedAssetItem_ItemName");
         static By CustomerEmail_TextBox = By.Id("Profile_Email");
         static By CustomerNumber_TextBox = By.Id("Customer_CustomerNumber");
         static By IDType_SelectToggle = By.CssSelector("#FormManager > div:nth-child(2) > div:nth-child(2) > div > div > a > span.select2-arrow.ui-select-toggle");
@@ -52,11 +52,11 @@ namespace ERP_Automation_Test.Projects.ERP.Modules.Profiles_Module
         static By NumOfItems_Text = By.XPath("//*[@id=\"grid\"]/div[2]/div[2]/div/span");
         static By UISelect_DDL = By.ClassName("ui-select-container");
         static By UISelectSearch_TextBox = By.ClassName("ui-select-search");
-        static By ageofassetsinyeras = By.Id("FixedAssetItem_Years");
+        static By ageofassetsinyeras = By.Id("FixedAssetItem_FixedAssetLife");
         static By originName = By.Id("FixedAssetItem_ItemName");
         static By origincode = By.Id("FixedAssetItem_ItemCode");
         static By priceofassets = By.Id("FixedAssetItem_ItemPrice");
-        static By Date = By.ClassName("dataPickerInputMainClass");
+        static By Date = By.XPath("/html/body/div[2]/main/div/div/div[2]/div/div[2]/div[2]/div/div[1]/div[2]/div[1]/form/div[2]/div[5]/div/date-picker-directive/div/input[1]");
 
 
         public static void Goto()
@@ -68,7 +68,9 @@ namespace ERP_Automation_Test.Projects.ERP.Modules.Profiles_Module
 
         }
         public static void AddAssets()
+
         {
+
             Driver.FindElement(Add_Button).Click();
             time.Sleep(2000);
             Driver.FindElements(UISelect_DDL)[2].Click();
@@ -87,10 +89,15 @@ namespace ERP_Automation_Test.Projects.ERP.Modules.Profiles_Module
             Driver.FindElement(priceofassets).SendKeys(Data.assets.Thepriceofassets);
             time.Sleep(2000);
             Driver.FindElement(Date).Clear();
+            time.Sleep(2000);
             Driver.FindElement(Date).SendKeys(Data.assets.Date);
 
             Driver.FindElement(Save_Button).Click();
             time.Sleep(2000);
+            
+
+
+
 
 
 
@@ -113,6 +120,59 @@ namespace ERP_Automation_Test.Projects.ERP.Modules.Profiles_Module
         }
 
 
+        public static string Search(string item)
+        {
+            Driver.FindElement(Search_TextBox).Clear();
+            Driver.FindElement(Search_TextBox).SendKeys(item);
+            Driver.FindElement(Search_Button).Click();
+            time.Sleep(1000);
+
+            if (Driver.FindElement(NumOfItems_Text).Text == "1 - 1 من 1")
+            {
+                return "Exist";
+            }
+            else if (Driver.FindElement(NumOfItems_Text).GetAttribute("class") == "ng-binding ng-hide")
+            {
+                return "NotExist";
+            }
+            else
+            {
+                return "Repeated";
+            }
+
+
+
+
+
+
+
+
+
+
+
+        }
+        public static void Edit_Assets(string AssetsName, string newName)
+        {
+            Search(AssetsName);
+            time.Sleep(1000);
+            Driver.FindElement(firstItemEdit_Button).Click();
+            time.Sleep(1000);
+            Driver.FindElement(AssetsName_textbox).Clear();
+            Driver.FindElement(AssetsName_textbox).SendKeys(newName);
+            Driver.FindElement(Save_Button).Click();
+            time.Sleep(2000);
+        }
+
+        public static void Delete_Assets(string AssetsName)
+        {
+            Search(AssetsName);
+            time.Sleep(1000);
+            Driver.FindElement(firstItemDelete_Button).Click();
+            time.Sleep(2000);
+            Driver.FindElement(DeleteConfirm_Button).Click();
+            time.Sleep(3000);
+
+        }
     }
     }
 

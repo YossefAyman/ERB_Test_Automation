@@ -14,7 +14,7 @@ using OpenQA.Selenium.Support.UI;
 
 
 
- namespace ERP_Automation_Testing
+namespace ERP_Automation_Testing
 {
     class Owner_Page
     {
@@ -90,7 +90,7 @@ using OpenQA.Selenium.Support.UI;
         {
             Pages.OwnersPage();
         }
-        public static void edit_Teacher( string OwnerName, string newName)
+        public static void edit_Teacher(string OwnerName, string newName)
         {
 
             time.Sleep(3000);
@@ -117,7 +117,7 @@ using OpenQA.Selenium.Support.UI;
             Driver.FindElement(DeleteConfirm_Button).Click();
             time.Sleep(1000);
         }
-        public static void ShortKeys_Scenrio( string newName)
+        public static void ShortKeys_Scenrio(string newName)
         {
             time.Sleep(3000);
             //Data.Shortcut("");
@@ -140,7 +140,7 @@ using OpenQA.Selenium.Support.UI;
             time.Sleep(2000);
             Data.Add_Attachment();
             time.Sleep(1000);
-            Data.Shortcut(Keys.LeftControl+ "s");
+            Data.Shortcut(Keys.LeftControl + "s");
             time.Sleep(3000);
             Driver.FindElement(Search_TextBox).SendKeys(Data.Owner.Name);
             Driver.FindElement(Search_Button).Click();
@@ -174,9 +174,12 @@ using OpenQA.Selenium.Support.UI;
             Driver.FindElement(Search_TextBox).Clear();
             Data.Shortcut(Keys.LeftControl + "F");
             time.Sleep(1000);
+
+           
+
+
         }
     }
 
-   
 
 }

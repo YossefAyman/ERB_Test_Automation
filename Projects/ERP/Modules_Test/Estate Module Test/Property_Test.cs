@@ -60,7 +60,7 @@ namespace ERP_Automation_Testing
         }
 
         [Test, Order(4)]
-        public static void T1_Add_PropertyType_Then_Add_Property()
+        public static void T4_Add_PropertyType_Then_Add_Property()
         {
             TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.Estates.Test_Index_PropertyType);
             Data.Estates.Test_Index_PropertyType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P1_PropertyType");
@@ -71,6 +71,52 @@ namespace ERP_Automation_Testing
             Property_Page.Goto();
             Property_Page.Add_Property_With_Added_NewPropertyType();
             Assert.IsTrue(PropertyType_Page.Search(Data.Estates.Property_Name) == "Exist", "T1_Add_Property_Test Failed");
+        }
+
+        [Test, Order(5)]
+        public static void T5_Add_PropertyType_Then_Add_Property_Then_Check_That_Property_Is_Added_Correctly_To_The_Owner_Report()
+        {
+            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.Estates.Test_Index_PropertyType);
+            Data.Estates.Test_Index_PropertyType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P1_PropertyType");
+            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.Estates.Test_Index_Property);
+            Data.Estates.Test_Index_Property = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P2_Property");
+            PropertyType_Page.Goto();
+            PropertyType_Page.AddPropertyType();
+            Property_Page.Goto();
+            Property_Page.Add_Property_With_Added_NewPropertyType();
+            Owner_PropertyReport_Report.Goto();
+            Assert.IsTrue(Owner_PropertyReport_Report.Check_That_Property_Is_Added_Correctly_To_The_Owner(), "T5_Add_PropertyType_Then_Add_Property_Then_Check_That_Property_Is_Added_Correctly_To_The_Owner_Report Failed");
+        }
+        [Test, Order(6)]
+        public static void T6_Add_PropertyType_Then_Add_Property_Then_Add_RentContract_For_This_Property()
+        {
+            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.Estates.Test_Index_PropertyType);
+            Data.Estates.Test_Index_PropertyType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P1_PropertyType");
+            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.Estates.Test_Index_Property);
+            Data.Estates.Test_Index_Property = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P2_Property");
+            PropertyType_Page.Goto();
+            PropertyType_Page.AddPropertyType();
+            Property_Page.Goto();
+            Property_Page.Add_Property_With_Added_NewPropertyType();
+            RentContract_Page.Goto();
+            RentContract_Page.Add_RentContract();
+        }
+
+        [Test, Order(7)]
+        public static void T7_Add_PropertyType_Then_Add_Property_Then_Add_RentContract_Then_Check_That_Property_Is_Added_Correctly_To_Leased_Properties_Report()
+        {
+            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.Estates.Test_Index_PropertyType);
+            Data.Estates.Test_Index_PropertyType = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P1_PropertyType");
+            TestAutomationDbDataAccess.TestConfig.UpdateValueForSpacificKey(Data.Estates.Test_Index_Property);
+            Data.Estates.Test_Index_Property = TestAutomationDbDataAccess.TestConfig.Get("Test_Index_Estate_P2_Property");
+            PropertyType_Page.Goto();
+            PropertyType_Page.AddPropertyType();
+            Property_Page.Goto();
+            Property_Page.Add_Property_With_Added_NewPropertyType();
+            RentContract_Page.Goto();
+            RentContract_Page.Add_RentContract();
+            LeasedProperties_Report.Goto();
+            Assert.IsTrue(LeasedProperties_Report.Check_That_Property_Is_Added_Correctly_To_Leased_Properties(), "T7_Add_PropertyType_Then_Add_Property_Then_Add_RentContract_Then_Check_That_Property_Is_Added_Correctly_To_Leased_Properties_Report Failed");
         }
 
         [OneTimeTearDown]

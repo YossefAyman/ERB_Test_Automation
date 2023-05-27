@@ -31,9 +31,9 @@ namespace ERP_Automation_Testing
         static By DistrictName_SelectToggle = By.CssSelector("#FormManager > div:nth-child(3) > div:nth-child(4) > div > div > a > span.select2-arrow.ui-select-toggle");
         static By AddAttachment_Button = By.CssSelector("#AttachmentFormManager > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div > div.drop-box.w-100.ng-pristine.ng-untouched.ng-valid.ng-binding.ng-empty");
         static By Save_Button = By.CssSelector("#mainModal > div > div > div.modal-body > div.modal-footer > input");
-       // static By Search_TextBox = By.ClassName("ng-valid");
+        // static By Search_TextBox = By.ClassName("ng-valid");
         static By Search_TextBox = By.XPath("//*[@placeholder=\"بحث\"]");
-        static By Search_Button = By.ClassName("btn-light"); 
+        static By Search_Button = By.ClassName("btn-light");
         static By CountryName_TextBox = By.CssSelector("#FormManager > div:nth-child(3) > div:nth-child(1) > div > div > div > div > input");
         static By AreaName_TextBox = By.CssSelector("#FormManager > div:nth-child(3) > div:nth-child(2) > div > div > div > div > input");
         static By CityName_TextBox = By.CssSelector("#FormManager > div:nth-child(3) > div:nth-child(3) > div > div > div > div > input");
@@ -64,23 +64,23 @@ namespace ERP_Automation_Testing
 
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5000);
             Driver.FindElement(Add_Button).Click();
-            
+
             Driver.FindElement(SupplierName_TextBox).SendKeys(Data.Supplier.Name);
-          
+
             Driver.FindElement(SupplierEmail_TextBox).SendKeys(Data.Supplier.Email);
-         
+
             Driver.FindElement(address).SendKeys(Data.Supplier.Address);
-            
+
             Driver.FindElement(SupplierPhone_TextBox).SendKeys(Data.Supplier.Phone);
-            
-          
+
+
             Driver.FindElement(SupplierMobile_TextBox).SendKeys(Data.Supplier.Mobile);
-       
+
             Driver.FindElement(SupplierAddress_TextBox).SendKeys(Data.Supplier.Address);
-           
+
             Driver.FindElement(Describtion).SendKeys(Data.Supplier.Describtion);
-            
-          
+
+
             Driver.FindElement(updateuserinfo).Click();
             time.Sleep(2000);
             Driver.FindElement(userName).SendKeys(Data.Supplier.Name);
@@ -91,39 +91,39 @@ namespace ERP_Automation_Testing
             time.Sleep(2000);
             Driver.FindElement(showusserpassword).Click();
             time.Sleep(2000);
-            
-         
-          
-            Driver.FindElement(NationalID).SendKeys(Data.Supplier.NationalID);
-       
 
-          Driver.FindElements(UISelect_DDL)[3].Click();// country
+
+
+            Driver.FindElement(NationalID).SendKeys(Data.Supplier.NationalID);
+
+
+            Driver.FindElements(UISelect_DDL)[3].Click();// country
             time.Sleep(2000);
             Driver.FindElements(UISelectSearch_TextBox)[3].SendKeys(Data.Supplier.Country + Keys.Enter);
             time.Sleep(2000);
             Driver.FindElements(UISelect_DDL)[4].Click();//Area
             time.Sleep(2000);
-            Driver.FindElements(UISelectSearch_TextBox)[4].SendKeys(Data.Supplier.Area+Keys.Enter);
+            Driver.FindElements(UISelectSearch_TextBox)[4].SendKeys(Data.Supplier.Area + Keys.Enter);
             time.Sleep(2000);
             Driver.FindElements(UISelect_DDL)[5].Click();//city
             time.Sleep(2000);
-            Driver.FindElements(UISelectSearch_TextBox)[5].SendKeys(Data.Supplier.City+Keys.Enter);
+            Driver.FindElements(UISelectSearch_TextBox)[5].SendKeys(Data.Supplier.City + Keys.Enter);
             time.Sleep(2000);
             Driver.FindElements(UISelect_DDL)[6].Click();//District
             time.Sleep(2000);
-            Driver.FindElements(UISelectSearch_TextBox)[6].SendKeys(Data.Supplier.District+Keys.Enter);
+            Driver.FindElements(UISelectSearch_TextBox)[6].SendKeys(Data.Supplier.District + Keys.Enter);
             time.Sleep(2000);
-            
-            
+
+
             Driver.FindElement(AddAttachment_Button).Click();
 
 
-           
+
 
             Driver.FindElement(AddAttachment_Button).Click();
-   
+
             Data.Add_Attachment();
-   
+
             Driver.FindElement(Save_Button).Click();
             Driver.Navigate().Refresh();
             time.Sleep(2000);
@@ -131,7 +131,7 @@ namespace ERP_Automation_Testing
         }
 
         //#############################################################################################   
-        public static void Edit_Supplier(string SupplierName, string newName) 
+        public static void Edit_Supplier(string SupplierName, string newName)
         {
             Search(SupplierName);
             Driver.FindElement(FirstItemEdit_Button).Click();
@@ -143,14 +143,15 @@ namespace ERP_Automation_Testing
         }
 
         //##############################################################################################        
-        public static void Delete_Supplier(string supplierName) 
+        public static void Delete_Supplier(string supplierName)
         {
             Search(supplierName);
             Driver.FindElement(FirstItemDelete_Button).Click();
             time.Sleep(2000);
-		    Driver.FindElement(DeleteConfirm_Button).Click();
+            Driver.FindElement(DeleteConfirm_Button).Click();
             time.Sleep(1000);
-       }
+
+        }
 
         public static string Search(string item)
         {
@@ -171,6 +172,16 @@ namespace ERP_Automation_Testing
             {
                 return "Repeated";
             }
+
+      
+            
+                    
+
+
+            }
+
+
+            
         }
-    }
-}
+        }
+    

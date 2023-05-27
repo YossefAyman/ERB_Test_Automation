@@ -22,7 +22,9 @@ namespace Automation_Testing
     {
 
         public static IWebDriver Driver = new ChromeDriver(@"C:\");
-        public static Actions Actions = new Actions(Driver);        
+        public static Actions Actions = new Actions(Driver);
+        static IJavaScriptExecutor javaDriverExector = Driver as IJavaScriptExecutor;
+
 
         public static bool testingOnWebsite = false;
 
@@ -38,6 +40,14 @@ namespace Automation_Testing
             Driver = new ChromeDriver(@"C:\");
 
         }
+        
+        public static void ZoomOut()
+         {
+           new Actions(Driver).SendKeys(Keys.Control).SendKeys(Keys.Subtract).Perform();
+            /*Actions.SendKeys(Keys.Control);
+            Actions.SendKeys(Keys.Subtract);*/
+          }
+        
         public static bool IsElementPresent(By by)
         {
             try
